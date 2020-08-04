@@ -383,7 +383,6 @@ class HomePage extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       data
     }) => {
       if (data.loggedIn) {
-        console.log('setting logged in');
         _store_index__WEBPACK_IMPORTED_MODULE_4__["default"].dispatch(Object(_store_actions__WEBPACK_IMPORTED_MODULE_5__["setLoggedIn"])());
       }
     }).catch(e => {
@@ -473,15 +472,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+ // const loggingMiddleware=store=>next=>action=>{
+//   console.log('Action:', action)
+//   next(action);
+//   console.log('New State', store.getState())
+// }
 
-
-const loggingMiddleware = store => next => action => {
-  console.log('Action:', action);
-  next(action);
-  console.log('New State', store.getState());
-};
-
-const store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducer__WEBPACK_IMPORTED_MODULE_1__["default"], Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(loggingMiddleware));
+const store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducer__WEBPACK_IMPORTED_MODULE_1__["default"], Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])());
 /* harmony default export */ __webpack_exports__["default"] = (store);
 
 

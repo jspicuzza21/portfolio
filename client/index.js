@@ -24,7 +24,6 @@ class HomePage extends Component{
     axios.get('/api/whoami')
       .then(({data})=>{
         if(data.loggedIn){
-          console.log('setting logged in')
           store.dispatch(setLoggedIn());
         }
       })

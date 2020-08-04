@@ -1,16 +1,25 @@
 const { Router } = require('express');
 const { models:{ User, Session } }= require('../../db/index');
+const bcrypt = require('bcrypt');
 const apiRouter = Router();
 
+
 apiRouter.post('/login', async (req, res)=>{
-  const { username, password } = req.body
-  const user = await User.findOne({where: {username, password}})
+  const { username, password } = req.body;
+  const user = await User.findOne({
+    where: {
+      username
+    }
+  })
   if(!user){
     res.sendStatus(401);
   } else {
-    const usersSession = await Session.findByPk(req.session_id)
-    await usersSession.setUser(user)
-    res.sendStatus(200);
+    const match = await bcrypt.compare(password, user.password);
+    if (match){
+      const usersSession = await Session.findByPk(req.session_id)
+      await usersSession.setUser(user)
+      res.sendStatus(200);
+    }
   }
 })
 

@@ -1,4 +1,5 @@
-import { updateForm, setLoggedIn, types } from './actions';
+import { types } from './actions';
+import { combineReducers } from 'redux';
 
 const initialState={
   username:'',
@@ -7,19 +8,21 @@ const initialState={
   initialLoadingComplete: false,
 }
 
-const reducer=(state=initialState, action)=>{
+const loginReducer=(state=initialState, action)=>{
   switch(action.type){
-    case types.UPDATE_FORM:
+    case types.LOGIN:
       return {
         ...state,
-        [action.name]: action.value
+        username: action.username,
+        loggedIn: true,
+        role: action.role,
       };
-    case types.SET_LOGGED_IN:
+    case types.LOGOUT:
       return {
         ...state,
-        username:'',
-        password:'',
-        loggedIn:true
+        username: null,
+        loggedIn: false,
+        role: 'guest'
       };
     case types.INITIAL_LOADING_COMPLETE:
       return {
@@ -29,5 +32,9 @@ const reducer=(state=initialState, action)=>{
     default: return state;
   }
 }
+
+const reducer = combineReducers({
+  user: loginReducer,
+});
 
 export default reducer;

@@ -9,10 +9,24 @@ const User = db.define('user', {
     defaultValue: UUIDV4,
     primaryKey: true,
   },
-  username: {
+  email: {
     type: STRING,
     allowNull: false,
     unique: true,
+    validate: {
+      notEmpty: true,
+    },
+  },
+  name:{
+    type: STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
+  },
+  department:{
+    type: STRING,
+    allowNull: false,
     validate: {
       notEmpty: true,
     },

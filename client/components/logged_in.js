@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import store from '../store/index';
-import LoginForm from './login_form';
+import { connect } from 'react-redux';
+
 
 class LoggedIn extends Component{
   constructor(){
@@ -24,4 +25,4 @@ class LoggedIn extends Component{
   }
 }
 
-export default LoggedIn;
+export default connect(null,null)(LoggedIn);

@@ -17,7 +17,10 @@ const seed =async ()=>{
   await sync(true);
   try{
     await User.create({
-      username: 'joe@me.com',
+      email: 'joe@me.com',
+      name: 'Joe Spicuzza',
+      department: 'SCPO',
+      role: 'admin',
       password: 'password123'
     })
     console.log(chalk.green('Dev data seeded'))

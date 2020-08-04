@@ -1,6 +1,6 @@
-import   { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import thunks from 'redux-thunk';
 import reducer from './reducer';
-import { updateForm, setLoggedIn } from './actions';
 
 
 // const loggingMiddleware=store=>next=>action=>{
@@ -9,11 +9,7 @@ import { updateForm, setLoggedIn } from './actions';
 //   console.log('New State', store.getState())
 // }
 
-const store = createStore(reducer, applyMiddleware());
+
+const store = createStore(reducer, applyMiddleware(thunks));
 
 export default store; 
-
-export {
-  updateForm,
-  setLoggedIn,
-}

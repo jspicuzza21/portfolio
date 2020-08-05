@@ -1,25 +1,32 @@
 export const types = {
-  UPDATE_FORM:'UPDATE_FORM',
-  SET_LOGGED_IN: 'SET_LOGGED_IN',
-  INITIAL_LOADING_COMPLETE: 'INITIAL_LOADING_COMPLETE'
+  INITIAL_LOADING_COMPLETE: 'INITIAL_LOADING_COMPLETE',
+  LOGIN: 'LOGIN',
+  LOGOUT: 'LOGOUT',
+  LOGIN_FAIL: 'LOGIN_FAIL',
 }
-
-const updateForm=(name, value)=> ({
-  type: types.UPDATE_FORM,
-  name,
-  value
-})
-
-const setLoggedIn=()=>({
-  type: types.SET_LOGGED_IN,
-})
 
 const changeInitialLoading=()=>({
   type: types.INITIAL_LOADING_COMPLETE,
 })
 
+const login = (email, role) => ({
+  type: types.LOGIN,
+  email,
+  role,
+});
+
+const logout = () => ({
+  type: types.LOGOUT,
+});
+
+const loginFail = (message) => ({
+  type: types.LOGIN_FAIL,
+  message,
+});
+
 export {
-  updateForm,
-  setLoggedIn,
   changeInitialLoading,
+  login,
+  logout,
+  loginFail,
 }

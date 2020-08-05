@@ -13,24 +13,26 @@ const sync=async(force = false) => {
   }
 }
 
-const seed =async ()=>{
-  await sync(true);
-  try{
-    await User.create({
-      username: 'joe@me.com',
-      password: 'password123'
-    })
-    console.log(chalk.green('Dev data seeded'))
-  }
-  catch(e){
-    console.log(chalk.red('Dev data seed failed'))
-    console.log(e)
-  }
-}
+// const seed =async ()=>{
+//   await sync(true);
+//   try{
+//     await User.create({
+//       email: 'joe@me.com',
+//       name: 'Joe Spicuzza',
+//       department: 'SCPO',
+//       role: 'admin',
+//       password: '!nvestig8'
+//     })
+//     console.log(chalk.green('Dev data seeded'))
+//   }
+//   catch(e){
+//     console.log(chalk.red('Dev data seed failed'))
+//     console.log(e)
+//   }
+// }
 
 module.exports={
   db, 
   models,
   sync,
-  seed,
 };

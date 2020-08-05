@@ -1,65 +1,33 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
-import { LoginForm, LoggedIn, LoadingComponent } from './components'
+import { LoginForm, LoggedIn, Home } from './components'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import store from './store/index';
-import { changeInitialLoading, setLoggedIn, } from './store/actions'
-import axios from 'axios';
+import { Provider } from 'react-redux';
+import store from './store';
+import NavBar from './components/nav';
 
-const app = document.querySelector('#app');
 
-class HomePage extends Component{
-  constructor(){
-    super()
-    this.state={
-      loaded: store.getState().initialLoadingComplete,
-    }
-
-    store.subscribe(()=>{
-      this.setState({loaded: store.getState().initialLoadingComplete})
-    })
-  }
-
-  componentDidMount(){ 
-    axios.get('/api/whoami')
-      .then(({data})=>{
-        if(data.loggedIn){
-          console.log('setting logged in')
-          store.dispatch(setLoggedIn());
-        }
-      })
-      .catch((e)=>{
-        console.error(e)
-      })
-      .finally(()=>{
-        store.dispatch(changeInitialLoading());
-      })
-  }
-
+class App extends Component{  
   render(){
-    const { loaded } = this.state;
-
     return (
-      <BrowserRouter >
-      {!loaded && <LoadingComponent/>
-
-      }
-      { loaded &&
-        <Switch>
-          <Route exact path={'/'} component={LoginForm}></Route>
-          <Route exact path={'/account'} component={LoggedIn}></Route>
-          <Redirect to='/' />
-        </Switch>
-      }
-      </BrowserRouter >
+      <Provider store={store}>
+        <BrowserRouter >
+        <Route render={() => <NavBar />} />
+          <Switch>
+            <Route exact path={'/'} component ={Home}></Route>
+            <Route exact path={'/login'} component={LoginForm}></Route>
+            <Route exact path={'/account'} component={LoggedIn}></Route>
+            <Redirect to='/' />
+          </Switch>
+        </BrowserRouter >
+      </Provider>
     )
   }
 }
 
+const app = document.querySelector('#app');
+
 ReactDom.render(
-  <HomePage/>,
+  <App/>,
   app,
-  ()=>{
-    console.log('app rendered')
-  }
-)
+  ()=>console.log('app rendered'))

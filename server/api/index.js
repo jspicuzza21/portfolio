@@ -11,8 +11,8 @@ const PUBLIC_PATH = path.join(__dirname, '../../public');
 const DIST_PATH = path.join(__dirname, '../../dist');
 
 app.use(cookieParser());
+
 app.use(async (req, res, next)=>{
-  console.log(req.cookies);
   if (!req.cookies.session_id){
     const session = await Session.create();
     const oneWeek= 1000 * 60 * 60 * 24 * 7;

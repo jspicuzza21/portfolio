@@ -1,21 +1,17 @@
 import React, { Component } from 'react';
-import store from '../store/index';
-import LoginForm from './login_form';
+import { connect } from 'react-redux';
+import { whoami } from '../store/thunks/loginThunks';
+
 
 class LoggedIn extends Component{
-  constructor(){
-    super()
-    this.state={
-      loggedIn: store.getState().loggedIn,
-    }
-    store.subscribe(()=>{
-      this.setState({
-        loggedIn:store.getState().loggedIn,
-      });
-    });
+ 
+  async componentDidMount(){
+    await this.props.whoami();
   }
+
   render(){
-    const { loggedIn } = this.state;
+    console.log(this.props.user)
+    const { loggedIn } = this.props.user;
     return(
       <div>
          <h3>{loggedIn ? 'You are logged in.' : 'Failed to login.'}</h3>
@@ -24,4 +20,9 @@ class LoggedIn extends Component{
   }
 }
 
-export default LoggedIn;
+const mapStateToProps = ({ user }) => ({ user });
+const mapDispatchToProps = (dispatch) => ({
+  whoami: () => dispatch(whoami()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoggedIn);

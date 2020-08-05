@@ -21,7 +21,7 @@ const seed =async ()=>{
       name: 'Joe Spicuzza',
       department: 'SCPO',
       role: 'admin',
-      password: 'password123'
+      password: '!nvestig8'
     })
     console.log(chalk.green('Dev data seeded'))
   }

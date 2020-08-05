@@ -2,8 +2,7 @@ import { types } from './actions';
 import { combineReducers } from 'redux';
 
 const initialState={
-  username:'',
-  password:'',
+  email:'',
   loggedIn: false,
   initialLoadingComplete: false,
 }
@@ -13,14 +12,14 @@ const loginReducer=(state=initialState, action)=>{
     case types.LOGIN:
       return {
         ...state,
-        username: action.username,
+        email: action.email,
         loggedIn: true,
         role: action.role,
       };
     case types.LOGOUT:
       return {
         ...state,
-        username: null,
+        email: null,
         loggedIn: false,
         role: 'guest'
       };

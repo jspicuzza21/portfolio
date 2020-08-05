@@ -12,9 +12,9 @@ class LoginForm extends Component{
   componentDidMount(){
     whoami()
   }
-
+  
   showLoginOrLogout(){
-    return this.props.user.username ? <Logout /> : <Login />;
+    return this.props.user.loggedIn ? <Logout /> : <Login />;
   }
 
   render(){
@@ -27,7 +27,7 @@ class LoginForm extends Component{
   }
 }
 
-const mapStateToProps = ({ user, loading }) => ({ user, loading });
+const mapStateToProps = ({ user }) => ({ user });
 const mapDispatchToProps = (dispatch) => ({
   whoAmI: () => dispatch(whoami()),
 });

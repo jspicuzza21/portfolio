@@ -4,6 +4,7 @@ import { LoginForm, LoggedIn, Home } from './components'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
+import NavBar from './components/nav';
 
 
 class App extends Component{  
@@ -11,6 +12,7 @@ class App extends Component{
     return (
       <Provider store={store}>
         <BrowserRouter >
+        <Route render={() => <NavBar />} />
           <Switch>
             <Route exact path={'/'} component ={Home}></Route>
             <Route exact path={'/login'} component={LoginForm}></Route>

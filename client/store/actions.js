@@ -9,14 +9,14 @@ const changeInitialLoading=()=>({
   type: types.INITIAL_LOADING_COMPLETE,
 })
 
-const login = (username, role) => ({
+const login = (email, role) => ({
   type: types.LOGIN,
-  username,
+  email,
   role,
 });
 
 const logout = () => ({
-  type: userTypes.LOGOUT,
+  type: types.LOGOUT,
 });
 
 const loginFail = (message) => ({

@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { loginThunk } from '../../store/thunks/loginThunks';
+import { loginThunk, whoami } from '../../store/thunks/loginThunks';
+import store from '../../store/index.js';
 
-const Login = ({ login }) => {
-  const [username, setUsername] = useState('');
+const Login = ({ login, history }) => {
+  const [email, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  console.log(props)
+  
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    login(username, password, history)
+    await login(email, password, history);
   };
 
   return (
     <form>
       <label>
         Username:
-        <input value={username} type='username' onChange={(e) => setUsername(e.target.value)}></input>
+        <input value={email} type='username' onChange={(e) => setUsername(e.target.value)}></input>
       </label>
       <label>
         Password:
@@ -29,6 +30,7 @@ const Login = ({ login }) => {
 
 const mapDispatchToProps = (dispatch) => ({
   login: (username, password, history) => dispatch(loginThunk(username, password, history)),
+  whoami: () => dispatch(whoami()),
 });
 
 export default connect(null, mapDispatchToProps)(Login);

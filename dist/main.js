@@ -210,35 +210,38 @@ class LoadingComponent extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../store/index */ "./client/store/index.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _store_thunks_loginThunks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store/thunks/loginThunks */ "./client/store/thunks/loginThunks.js");
 
 
 
 
 class LoggedIn extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
-  constructor() {
-    super();
-    this.state = {
-      loggedIn: _store_index__WEBPACK_IMPORTED_MODULE_1__["default"].getState().loggedIn
-    };
-    _store_index__WEBPACK_IMPORTED_MODULE_1__["default"].subscribe(() => {
-      this.setState({
-        loggedIn: _store_index__WEBPACK_IMPORTED_MODULE_1__["default"].getState().loggedIn
-      });
-    });
+  async componentDidMount() {
+    await this.props.whoami();
   }
 
   render() {
+    console.log(this.props.user);
     const {
       loggedIn
-    } = this.state;
+    } = this.props.user;
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, loggedIn ? 'You are logged in.' : 'Failed to login.'));
   }
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(null, null)(LoggedIn));
+const mapStateToProps = ({
+  user
+}) => ({
+  user
+});
+
+const mapDispatchToProps = dispatch => ({
+  whoami: () => dispatch(Object(_store_thunks_loginThunks__WEBPACK_IMPORTED_MODULE_2__["whoami"])())
+});
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(LoggedIn));
 
 /***/ }),
 
@@ -255,24 +258,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _store_thunks_loginThunks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../store/thunks/loginThunks */ "./client/store/thunks/loginThunks.js");
+/* harmony import */ var _store_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../store/index.js */ "./client/store/index.js");
+
 
 
 
 
 const Login = ({
-  login
+  login,
+  history
 }) => {
-  const [username, setUsername] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
+  const [email, setUsername] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
   const [password, setPassword] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
-  console.log(props);
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    login(username, password, history);
+    await login(email, password, history);
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Username:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    value: username,
+    value: email,
     type: "username",
     onChange: e => setUsername(e.target.value)
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Password:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -286,7 +291,8 @@ const Login = ({
 };
 
 const mapDispatchToProps = dispatch => ({
-  login: (username, password, history) => dispatch(Object(_store_thunks_loginThunks__WEBPACK_IMPORTED_MODULE_2__["loginThunk"])(username, password, history))
+  login: (username, password, history) => dispatch(Object(_store_thunks_loginThunks__WEBPACK_IMPORTED_MODULE_2__["loginThunk"])(username, password, history)),
+  whoami: () => dispatch(Object(_store_thunks_loginThunks__WEBPACK_IMPORTED_MODULE_2__["whoami"])())
 });
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(null, mapDispatchToProps)(Login));
@@ -361,7 +367,7 @@ class LoginForm extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   }
 
   showLoginOrLogout() {
-    return this.props.user.username ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_index__WEBPACK_IMPORTED_MODULE_3__["Logout"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_index__WEBPACK_IMPORTED_MODULE_3__["Login"], null);
+    return this.props.user.loggedIn ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_index__WEBPACK_IMPORTED_MODULE_3__["Logout"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_index__WEBPACK_IMPORTED_MODULE_3__["Login"], null);
   }
 
   render() {
@@ -371,11 +377,9 @@ class LoginForm extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 }
 
 const mapStateToProps = ({
-  user,
-  loading
+  user
 }) => ({
-  user,
-  loading
+  user
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -383,6 +387,81 @@ const mapDispatchToProps = dispatch => ({
 });
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(LoginForm));
+
+/***/ }),
+
+/***/ "./client/components/nav.js":
+/*!**********************************!*\
+  !*** ./client/components/nav.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _store_thunks_loginThunks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../store/thunks/loginThunks */ "./client/store/thunks/loginThunks.js");
+
+
+
+
+
+const NavBar = ({
+  whoAmI,
+  user
+}) => {
+  const [isAdmin, setAdmin] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const [isMember, setMember] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    whoAmI();
+  }, []);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    if (user.role === 'admin') {
+      setAdmin(true);
+    } else {
+      setAdmin(false);
+    }
+  }, [user]);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    if (user.role === 'member') {
+      setMember(true);
+    } else {
+      setMember(false);
+    }
+  }, [user]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+    className: "navbar is-light",
+    role: "navigation",
+    "aria-label": "main navigation"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/",
+    className: "navbar-item"
+  }, "Home"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/login",
+    className: "navbar-item"
+  }, user.email ? 'Log Out' : 'Login'), isAdmin && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/admin",
+    className: "navbar-item"
+  }, "Admin"), isMember || isAdmin && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/request",
+    className: "navbar-item"
+  }, "Submit Request")));
+};
+
+const mapStateToProps = ({
+  user
+}) => ({
+  user
+});
+
+const mapDispatchToProps = dispatch => ({
+  whoAmI: () => dispatch(Object(_store_thunks_loginThunks__WEBPACK_IMPORTED_MODULE_3__["whoami"])())
+});
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(NavBar));
 
 /***/ }),
 
@@ -403,6 +482,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./store */ "./client/store/index.js");
+/* harmony import */ var _components_nav__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/nav */ "./client/components/nav.js");
+
 
 
 
@@ -414,7 +495,9 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   render() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_4__["Provider"], {
       store: _store__WEBPACK_IMPORTED_MODULE_5__["default"]
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+      render: () => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_nav__WEBPACK_IMPORTED_MODULE_6__["default"], null)
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
       exact: true,
       path: '/',
       component: _components__WEBPACK_IMPORTED_MODULE_2__["Home"]
@@ -463,14 +546,14 @@ const changeInitialLoading = () => ({
   type: types.INITIAL_LOADING_COMPLETE
 });
 
-const login = (username, role) => ({
+const login = (email, role) => ({
   type: types.LOGIN,
-  username,
+  email,
   role
 });
 
 const logout = () => ({
-  type: userTypes.LOGOUT
+  type: types.LOGOUT
 });
 
 const loginFail = message => ({
@@ -521,8 +604,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const initialState = {
-  username: '',
-  password: '',
+  email: '',
   loggedIn: false,
   initialLoadingComplete: false
 };
@@ -531,14 +613,14 @@ const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case _actions__WEBPACK_IMPORTED_MODULE_0__["types"].LOGIN:
       return { ...state,
-        username: action.username,
+        email: action.email,
         loggedIn: true,
         role: action.role
       };
 
     case _actions__WEBPACK_IMPORTED_MODULE_0__["types"].LOGOUT:
       return { ...state,
-        username: null,
+        email: null,
         loggedIn: false,
         role: 'guest'
       };
@@ -577,13 +659,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 
 
-const loginThunk = (email, password, history) => dispatch => {
+const loginThunk = (email, password) => dispatch => {
   return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/login', {
     email,
     password
   }).then(res => {
     dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_0__["login"])(email, res.data.role));
-    history.push('/account');
   }).catch(() => {
     dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_0__["loginFail"])('Incorrect email or password'));
   });
@@ -600,7 +681,7 @@ const whoami = () => dispatch => {
     data
   }) => {
     if (data.loggedIn) {
-      dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_0__["login"])(data.username, data.role));
+      dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_0__["login"])(data.email, data.role));
     } else {
       dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_0__["logout"])());
     }

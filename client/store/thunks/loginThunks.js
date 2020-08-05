@@ -1,12 +1,11 @@
 import { login, logout, loginFail } from '../actions';
 import axios from 'axios';
 
-export const loginThunk = (email, password, history) => (dispatch) => {
+export const loginThunk = (email, password) => (dispatch) => {
   return axios
     .post('/api/login', { email, password })
     .then((res) => {
       dispatch(login(email, res.data.role));
-      history.push('/account')
     })
     .catch(() => {
       dispatch(loginFail('Incorrect email or password'));
@@ -27,7 +26,7 @@ export const logoutThunk = () => (dispatch) => {
 export const whoami = () => (dispatch) => {
   return axios.get('/api/whoami').then(({ data }) => {
     if (data.loggedIn) {
-      dispatch(login(data.username, data.role));
+      dispatch(login(data.email, data.role));
     } else {
       dispatch(logout());
     }

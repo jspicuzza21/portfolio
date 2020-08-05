@@ -16,6 +16,7 @@ const loginReducer=(state=initialState, action)=>{
         email: action.email,
         loggedIn: true,
         role: action.role,
+        id: action.id
       };
     case types.LOGOUT:
       return {

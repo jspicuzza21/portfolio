@@ -3,17 +3,20 @@ export const types = {
   LOGIN: 'LOGIN',
   LOGOUT: 'LOGOUT',
   LOGIN_FAIL: 'LOGIN_FAIL',
-  ADD_USER: 'ADD_USER'
+  ADD_USER: 'ADD_USER',
+  ADD_REQUEST: 'ADD_REQUEST',
+  GET_USERS: 'GET_USERS',
 }
 
 const changeInitialLoading=()=>({
   type: types.INITIAL_LOADING_COMPLETE,
 })
 
-const login = (email, role) => ({
+const login = (email, role, id) => ({
   type: types.LOGIN,
   email,
   role,
+  id
 });
 
 const logout = () => ({
@@ -30,10 +33,22 @@ const addUser = (user) =>({
   payload: user
 });
 
+const addRequest = (request) =>({
+  type: types.ADD_REQUEST,
+  payload: request
+});
+
+const getUsers=()=>{
+  type: types.GET_USERS,
+  payload
+}
+
 export {
   changeInitialLoading,
   login,
   logout,
   loginFail,
   addUser,
+  addRequest,
+  getUsers
 }

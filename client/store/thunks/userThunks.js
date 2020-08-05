@@ -1,4 +1,4 @@
-import { addUser } from '../actions';
+import { addUser, getUsers } from '../actions';
 import axios from 'axios';
 
 export const addUserThunk = (newUser) => {
@@ -6,6 +6,18 @@ export const addUserThunk = (newUser) => {
     return axios.post('/api/create', newUser)
       .then(({ data }) => {
         dispatch(addUser(data));
+      })
+      .catch((e) => {
+        console.error(e);
+      })
+  }
+}
+
+export const getUserThunk = () => {
+  return (dispatch) => {
+    return axios.get('/api/create')
+      .then(({ data }) => {
+        dispatch(getUsers(data));
       })
       .catch((e) => {
         console.error(e);

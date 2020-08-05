@@ -29,7 +29,7 @@ const NavBar = ({ whoAmI, user }) => {
             <Link to="/request" className="navbar-item">Submit Request</Link>
           }
           {role==='member' &&
-            <Link to="/request" className="navbar-item">Submit Request</Link>
+            <Link to="/new-request" className="navbar-item">Submit Request</Link>
           }
           {role==='admin' &&
             <Link to="/admin" className="navbar-item">Admin</Link>

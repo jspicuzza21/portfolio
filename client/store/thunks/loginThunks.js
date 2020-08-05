@@ -26,7 +26,7 @@ export const logoutThunk = () => (dispatch) => {
 export const whoami = () => (dispatch) => {
   return axios.get('/api/whoami').then(({ data }) => {
     if (data.loggedIn) {
-      dispatch(login(data.email, data.role));
+      dispatch(login(data.email, data.role, data.id));
     } else {
       dispatch(logout());
     }

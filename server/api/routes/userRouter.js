@@ -32,6 +32,7 @@ userRouter.get('/whoami', (req, res) => {
     res.send({
       email: req.user.email,
       role: req.user.role,
+      id: req.user.id,
       loggedIn: true,
     });
   } else {
@@ -39,6 +40,7 @@ userRouter.get('/whoami', (req, res) => {
       email: null,
       role: 'guest',
       loggedIn: false,
+      id:''
     });
   }
 });
@@ -53,6 +55,14 @@ userRouter.post("/create", async (req, res) => {
     console.log(e);
   }
 })
+
+userRouter.get("/users", async (req, res) => {
+  try {
+    const users = await User.findAll();
+    res.status(200).send(users);
+  } catch (err) {
+  }
+});
 
 module.exports={
   path: '/api',

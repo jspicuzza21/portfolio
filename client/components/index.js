@@ -5,6 +5,8 @@ import Home from './home';
 import Login from './login/login';
 import Logout from './login/logout';
 import SignUpForm from './login/signupForm';
+import RequestForm from './requests/requestForm';
+import DeviceForm from './requests/deviceForm';
 
 export {
   LoginForm,
@@ -14,4 +16,6 @@ export {
   Login,
   Logout,
   SignUpForm,
+  RequestForm,
+  DeviceForm
 }

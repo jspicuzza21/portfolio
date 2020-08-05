@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
-import { LoginForm, LoggedIn, Home, SignUpForm } from './components'
+import { LoginForm, LoggedIn, Home, SignUpForm, RequestForm, DeviceForm } from './components'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
@@ -18,6 +18,8 @@ class App extends Component{
             <Route exact path={'/login'} component={LoginForm}></Route>
             <Route exact path={'/account'} component={LoggedIn}></Route>
             <Route exact path={'/signup'} component={SignUpForm}></Route>
+            <Route exact path={'/new-request'} component={RequestForm}></Route>
+            <Route exact path={'/add-devices'} component={DeviceForm}></Route>
             <Redirect to='/' />
           </Switch>
         </BrowserRouter >

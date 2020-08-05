@@ -5,9 +5,7 @@ import { logoutThunk } from '../../store/thunks/loginThunks';
 const Logout = ({ user, logout }) => (
   <div>
     <h2>
-      Welcome
-      {user.username}
-      !
+      {`Welcome ${user.email}!`}
     </h2>
     <button
       onClick={logout}

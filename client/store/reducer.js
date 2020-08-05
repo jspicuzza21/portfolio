@@ -4,6 +4,7 @@ import { combineReducers } from 'redux';
 const initialState={
   email:'',
   loggedIn: false,
+  role:'guest',
   initialLoadingComplete: false,
 }
 
@@ -23,10 +24,11 @@ const loginReducer=(state=initialState, action)=>{
         loggedIn: false,
         role: 'guest'
       };
-    case types.INITIAL_LOADING_COMPLETE:
+    case types.ADD_USER:
       return {
-        ...state,
-        initialLoadingComplete: true
+        email: action.payload.email,
+        loggedIn:true,
+        role: action.payload.role,
       };
     default: return state;
   }
@@ -34,6 +36,7 @@ const loginReducer=(state=initialState, action)=>{
 
 const reducer = combineReducers({
   user: loginReducer,
+  
 });
 
 export default reducer;

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
-import { LoginForm, LoggedIn, Home } from './components'
+import { LoginForm, LoggedIn, Home, SignUpForm } from './components'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
@@ -17,6 +17,7 @@ class App extends Component{
             <Route exact path={'/'} component ={Home}></Route>
             <Route exact path={'/login'} component={LoginForm}></Route>
             <Route exact path={'/account'} component={LoggedIn}></Route>
+            <Route exact path={'/signup'} component={SignUpForm}></Route>
             <Redirect to='/' />
           </Switch>
         </BrowserRouter >

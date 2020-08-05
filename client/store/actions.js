@@ -3,6 +3,7 @@ export const types = {
   LOGIN: 'LOGIN',
   LOGOUT: 'LOGOUT',
   LOGIN_FAIL: 'LOGIN_FAIL',
+  ADD_USER: 'ADD_USER'
 }
 
 const changeInitialLoading=()=>({
@@ -24,9 +25,15 @@ const loginFail = (message) => ({
   message,
 });
 
+const addUser = (user) =>({
+  type: types.ADD_USER,
+  payload: user
+});
+
 export {
   changeInitialLoading,
   login,
   logout,
   loginFail,
+  addUser,
 }

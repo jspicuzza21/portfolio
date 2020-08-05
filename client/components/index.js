@@ -4,6 +4,7 @@ import LoadingComponent from './loading_component';
 import Home from './home';
 import Login from './login/login';
 import Logout from './login/logout';
+import SignUpForm from './login/signupForm';
 
 export {
   LoginForm,
@@ -12,4 +13,5 @@ export {
   Home,
   Login,
   Logout,
+  SignUpForm,
 }

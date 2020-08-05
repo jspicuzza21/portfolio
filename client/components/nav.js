@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import { whoami } from '../store/thunks/loginThunks';
 
 const NavBar = ({ whoAmI, user }) => {
-  const [isAdmin, setAdmin] = useState(false)
-  const [isMember, setMember] = useState(false)
+  const [role, setRole] = useState('guest');
 
   useEffect(() => {
     whoAmI();
@@ -13,30 +12,34 @@ const NavBar = ({ whoAmI, user }) => {
 
   useEffect(() => {
     if (user.role === 'admin') {
-      setAdmin(true)
+      setRole('admin')
+    } else if (user.role==='member'){
+      setRole('member')
     } else {
-      setAdmin(false)
+      setRole('guest')
     }
-  }, [user]);
-
-  useEffect(() => {
-    if (user.role === 'member') {
-      setMember(true)
-    } else {
-      setMember(false)
-    }
-  }, [user]);
+  });
 
   return (
     <div>
       <nav className="navbar is-light" role="navigation" aria-label="main navigation">
-        <Link to="/" className="navbar-item">Home</Link>
-        <Link to="/login" className="navbar-item">{user.email? 'Log Out' : 'Login'}</Link>
-        {isAdmin &&
-          <Link to="/admin" className="navbar-item">Admin</Link>}
-        {isMember || isAdmin &&
-          <Link to="/request" className="navbar-item">Submit Request</Link>
-        }
+        <div className='navbar-brand'>
+          <Link to="/" className="navbar-item">Home</Link>
+          {role==='admin' &&
+            <Link to="/request" className="navbar-item">Submit Request</Link>
+          }
+          {role==='member' &&
+            <Link to="/request" className="navbar-item">Submit Request</Link>
+          }
+          {role==='admin' &&
+            <Link to="/admin" className="navbar-item">Admin</Link>
+          }
+          <Link to="/login" className="navbar-item">{user.email? 'Log Out' : 'Login'}</Link>
+          {
+            role==='guest' &&
+            <Link to="/signup" className="navbar-item">Sign Up</Link>
+          }
+        </div>
       </nav>
     </div>
   );

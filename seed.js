@@ -8,14 +8,20 @@ const users = [
     name: 'admin',
     password: '!nvestig8',
     department: 'SCPO',
+    cellphone: '1234567890',
+    workPhone: '1234567890',
     role: 'admin',
+    initialLogin: true
   },
   {
     email: 'member',
     name: 'member',
     department: 'Local PD',
     password: '!nvestig8',
+    cellphone: '1234567890',
+    workPhone: '1234567890',
     role: 'member',
+    initialLogin:true
   },
   
 ]

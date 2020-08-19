@@ -1,4 +1,4 @@
-const { UUID, UUIDV4, BOOLEAN, STRING } = require('sequelize');
+const { UUID, UUIDV4, STRING } = require('sequelize');
 const db = require('./db');
 
 const Request = db.define('request',{
@@ -7,9 +7,9 @@ const Request = db.define('request',{
     defaultValue: UUIDV4,
     primaryKey:true
   },
-  completed:{
-    type: BOOLEAN,
-    defaultValue: false
+  status:{
+    type: STRING,
+    defaultValue: 'Incomplete'
   },
   caseNumber:{
     type: STRING,
@@ -18,11 +18,25 @@ const Request = db.define('request',{
       notEmpty: true,
     },
   },
+  suspect:{
+    type: STRING,
+    defaultValue:'Unknown'
+  },
+  aP:{
+    type: STRING,
+  },
   crime:{
     type: STRING,
   },
   urgency:{
     type: STRING,
+  },
+  service:{
+    type: STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
 })
 

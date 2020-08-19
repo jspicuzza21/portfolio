@@ -22,23 +22,26 @@ const NavBar = ({ whoAmI, user }) => {
 
   return (
     <div>
-      <nav className="navbar is-light" role="navigation" aria-label="main navigation">
+      <nav className={user.role==='admin'?'navbar is-dark' :"navbar is-light"} role="navigation" aria-label="main navigation">
         <div className='navbar-brand'>
-          <Link to="/" className="navbar-item">Home</Link>
           {role==='admin' &&
-            <Link to="/request" className="navbar-item">Submit Request</Link>
+            <Link to="/new-request" className="navbar-item">Requests</Link>
           }
           {role==='member' &&
-            <Link to="/new-request" className="navbar-item">Submit Request</Link>
+            <Link to="/new-request" className="navbar-item">Requests</Link>
           }
           {role==='admin' &&
             <Link to="/admin" className="navbar-item">Admin</Link>
           }
-          <Link to="/login" className="navbar-item">{user.email? 'Log Out' : 'Login'}</Link>
           {
             role==='guest' &&
             <Link to="/signup" className="navbar-item">Sign Up</Link>
           }
+          {
+            role!=='guest' &&
+            <Link to="/profile" className="navbar-item">Profile</Link>
+          }
+          <Link to="/" className="navbar-item">{user.email? 'Log Out' : 'Login'}</Link>
         </div>
       </nav>
     </div>

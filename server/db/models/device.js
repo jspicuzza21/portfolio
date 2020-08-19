@@ -14,6 +14,13 @@ const Device = db.define('device',{
       notEmpty: true,
     },
   },
+  devType: {
+    type: STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
+  },
   model: {
     type: STRING,
     allowNull: false,
@@ -30,12 +37,16 @@ const Device = db.define('device',{
   },
   pin: {
     type: STRING,
+    defaultValue:'Unknown'
+  },
+  authority: {
+    type: STRING,
     allowNull: false,
     validate: {
       notEmpty: true,
     },
   },
-  authority: {
+  evidenceNum: {
     type: STRING,
     allowNull: false,
     validate: {

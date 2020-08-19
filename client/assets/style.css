@@ -1,0 +1,163 @@
+body{
+  background-color:darkslategray;
+}
+
+.admin-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+.admin-box{
+  height: 300px;
+  width: 350px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.admin-box:hover{
+  height: 340px;
+  width: 370px;
+}
+
+.widget-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+.widget{
+  min-height: 140px;
+  min-width: 400px;
+  max-height: 140px;
+  text-align: center;
+}
+
+.inner-widget{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.admin-image{
+  width: 30%;
+  height: 45%;
+  background-color: BLUE;
+}
+
+.alert{
+  background: url('./images/alert.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.archive{
+  background: url('./images/archive.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.stats{
+  background: url('./images/stats.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.db{
+  background: url('./images/db.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.users{
+  background: url('./images/manageUsers.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.table{
+  text-align: center;
+  margin: auto;
+}
+
+.table-box{
+  width:95%;
+  margin: auto;
+  margin-top: 10px;
+}
+
+form{
+  margin: auto;
+  display: flex;
+  /* flex-direction: column; */
+  width: 80%;
+}
+
+.page-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-button{
+  width: 100px;
+}
+
+.form-container{
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form>button{
+  width: 100px;
+  align-self: center;
+}
+.home{
+  background: url('./images/unsplash.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+}
+
+.scpoLogo{
+  background: url('./images/The-Somerset-County-Prosecutor.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 225px;
+  width: 225px;
+}
+
+thead>tr>td{
+  font-weight: bold;
+}
+
+.login{
+  width:450px;
+  margin: auto;
+  margin-top: 100px;
+  min-width: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button{
+  margin:2.5px
+}
+
+.box{
+  margin:15px
+}
+
+.flex-container{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -6,17 +6,36 @@ export const types = {
   ADD_USER: 'ADD_USER',
   ADD_REQUEST: 'ADD_REQUEST',
   GET_USERS: 'GET_USERS',
+  GET_USER_REQUESTS: 'GET_USER_REQUESTS',
+  ADD_DEVICE: 'ADD_DEVICE',
+  GET_REQUEST_DEVICES: 'GET_REQUEST_DEVICES',
+  UPDATE_DEVICE: 'UPDATE_DEVICE',
+  UPDATE_REQUEST: 'UPDATE_REQUEST',
+  DELETE_DEVICE: 'DELETE_DEVICE',
+  DELETE_REQUEST: 'DELETE_REQUEST',
+  GET_ALL_REQS: 'GET_ALL_REQS',
+  GET_SINGLE_REQ: 'GET_SINGLE_REQ',
+  UPDATE_REQ_STATUS:'UPDATE_REQ_STATUS',
+  GET_DEVICES:'GET_DEVICES',
+  UPDATE_USER: 'UPDATE_USER',
+  DELETE_USER: 'DELETE_USER',
+  ADD_USER_ADMIN: 'ADD_USER_ADMIN',
+  DELETE_REQUEST_ADMIN: 'DELETE_REQUEST_ADMIN',
 }
 
 const changeInitialLoading=()=>({
   type: types.INITIAL_LOADING_COMPLETE,
 })
 
-const login = (email, role, id) => ({
+const login = (user) => ({
   type: types.LOGIN,
-  email,
-  role,
-  id
+  email: user.email,
+  role: user.role,
+  id: user.id,
+  name: user.name,
+  cellphone: user.cellphone,
+  workPhone: user.workPhone,
+  department: user.department
 });
 
 const logout = () => ({
@@ -38,7 +57,7 @@ const addRequest = (request) =>({
   payload: request
 });
 
-const getUsers=()=>{
+const getUsers = ()=> {
   type: types.GET_USERS,
   payload
 }
@@ -50,5 +69,5 @@ export {
   loginFail,
   addUser,
   addRequest,
-  getUsers
+  getUsers,
 }

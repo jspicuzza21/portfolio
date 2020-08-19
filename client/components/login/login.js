@@ -3,34 +3,37 @@ import { connect } from 'react-redux';
 import { loginThunk, whoami } from '../../store/thunks/loginThunks';
 import store from '../../store/index.js';
 
-const Login = ({ login, history }) => {
+const Login = (props) => {
   const [email, setUsername] = useState('');
   const [password, setPassword] = useState('');
   
-
+  console.log(props)
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await login(email, password, history);
+    await props.login(email, password, history);
   };
 
   return (
-    <form>
-      <label>
-        Username:
-        <input value={email} type='username' onChange={(e) => setUsername(e.target.value)}></input>
-      </label>
-      <label>
-        Password:
-        <input value={password} type='password' onChange={(e) => setPassword(e.target.value)}></input>
-      </label>
-      <button  onClick={handleSubmit} type='submit'> Login </button>
-    </form>
+    <div className='flex-container'>
+      <form className='box login' style={{marginTop:'100px'}}>
+        <div className='scpoLogo'></div>
+        <label className='label'>
+          Username:
+          <input value={email} type='username' onChange={(e) => setUsername(e.target.value)} className='input'></input>
+        </label>
+        <label className='label'>
+          Password:
+          <input value={password} type='password' onChange={(e) => setPassword(e.target.value)} className='input'></input>
+        </label>
+        <button  onClick={handleSubmit} type='submit' className='button is-primary'> Login </button>
+      </form>
+    </div>
   );
 };
 
+const mapStateToProps = (props) => (props);
 const mapDispatchToProps = (dispatch) => ({
   login: (username, password, history) => dispatch(loginThunk(username, password, history)),
-  whoami: () => dispatch(whoami()),
 });
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(mapStateToProps,  mapDispatchToProps)(Login);

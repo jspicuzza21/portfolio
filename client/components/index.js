@@ -7,6 +7,22 @@ import Logout from './login/logout';
 import SignUpForm from './login/signupForm';
 import RequestForm from './requests/requestForm';
 import DeviceForm from './requests/deviceForm';
+import UserRequestDevices from './requests/userRequestDevices';
+import EditRequest from './requests/editRequest';
+import AdminConsole from './admin/console';
+import NewRequests from './admin/newRequests';
+import SingleRequest from './admin/singleRequest';
+import RequestArchive from './admin/requestArchive';
+import Stats from './admin/stats';
+import DeviceStats from './admin/deviceStats';
+import RequestStats from './admin/requestStats';
+import ManageUsers from './admin/manageUsers';
+import addUserAdminForm from './admin/addUserFormAdmin';
+import ConsoleWidgets from './admin/consoleWidgets';
+import ManageDB from './admin/manageDB';
+import ManageRequests from './admin/manageRequests';
+import Profile from './profile';
+import ChangePassword from './changePassword';
 
 export {
   LoginForm,
@@ -17,5 +33,21 @@ export {
   Logout,
   SignUpForm,
   RequestForm,
-  DeviceForm
+  DeviceForm,
+  UserRequestDevices,
+  EditRequest,
+  AdminConsole,
+  NewRequests,
+  SingleRequest,
+  RequestArchive,
+  Stats,
+  DeviceStats,
+  RequestStats,
+  ManageUsers,
+  addUserAdminForm,
+  ConsoleWidgets,
+  ManageDB,
+  ManageRequests,
+  Profile,
+  ChangePassword
 }

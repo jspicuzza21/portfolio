@@ -181,12 +181,12 @@ export const adminDeleteRequestThunk = (id) => {
     }
   };
 
-export const deleteRequestThunk = (id) => {
+export const deleteDeviceThunk = (id) => {
   return (dispatch) => {
-    return axios.delete(`/req/device/${id}`)
+    return axios.delete(`/req/devices/${id}`)
       .then(res => {
         dispatch({
-          type: types.DELETE_DEVICE,
+          type: types.DELETE_DEVICE_ADMIN,
           payload: res.data
         })
       })

@@ -1,5 +1,5 @@
 body{
-  background-color:darkslategray;
+  background-color: white;
 }
 
 .admin-container{
@@ -7,7 +7,6 @@ body{
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-top: 15px;
 }
 
 .admin-box{
@@ -18,6 +17,7 @@ body{
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  margin: 100px
 }
 
 .admin-box:hover{
@@ -30,7 +30,7 @@ body{
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-top: 15px;
+  padding: 30px
 }
 
 .widget{
@@ -67,11 +67,6 @@ body{
   background-size: contain;
   background-repeat: no-repeat;
 }
-.db{
-  background: url('./images/db.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-}
 .users{
   background: url('./images/manageUsers.jpg');
   background-size: contain;
@@ -86,7 +81,6 @@ body{
 .table-box{
   width:95%;
   margin: auto;
-  margin-top: 10px;
 }
 
 form{
@@ -100,6 +94,7 @@ form{
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* padding:15px; */
 }
 
 .form-button{
@@ -111,6 +106,16 @@ form{
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 50%;
+}
+
+.top-container{
+  background-color:#242424;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:30px
 }
 
 form>button{
@@ -152,12 +157,42 @@ button{
   margin:2.5px
 }
 
-.box{
-  margin:15px
-}
-
 .flex-container{
   display:flex;
   justify-content: center;
   align-items: center;
+}
+
+.table-container{
+margin:50px
+}
+
+.nav-image{
+  background: url('./images/Picture1.png');
+  background-size: cover;
+  height: 70px;
+  width: 70px;
+}
+
+.profile{
+  width: 60%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+@media screen and (max-width: 1080px) {
+  .navbar-menu{
+    display: flex;
+    flex-direction: row;
+  }
+  .navbar-start{
+    display: flex;
+    flex-direction: row;
+  }
+  .navbar-end{
+    display: flex;
+    flex-direction: row;
+  }
 }

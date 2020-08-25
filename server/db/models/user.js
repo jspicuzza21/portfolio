@@ -55,11 +55,6 @@ const User = db.define('user', {
     type: ENUM,
     values: ['admin', 'guest', 'member'],
     allowNull: true
-  },
-  initialLogin: {
-    type: BOOLEAN,
-    defaultValue:false,
-    allowNull: false
   }
 })
 

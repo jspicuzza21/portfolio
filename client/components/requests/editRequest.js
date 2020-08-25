@@ -56,14 +56,15 @@ class EditRequest extends Component{
     }
     this.props.updateRequest(newRequest, this.props.match.params.id, history)
   }
-
+  
   render(){ 
     const { caseNumber, crime, urgency, aP, suspect, service } = this.state;
     const {id} = this.props.match.params;
     const { history } = this.props;
+    if(this.props.user.role==='member'||this.props.user.role==='admin'){
 
     return(
-      <div className='page-container'>
+      <div className='page-container' style={{backgroundColor:'#242424', height:'100vh'}}>
         <div className='form-container box' style={{display:'flex', flexDirection:'column'}}>
           <h1 className='subtitle'>Edit Request Information</h1>
           <div>
@@ -120,6 +121,9 @@ class EditRequest extends Component{
         </div>
       </div>
     )
+  }else {
+    return <h1 style={{color:'white', textAlign:'center', marginTop:'200px'}}>Unathorized</h1>
+  }
   }
 }
 

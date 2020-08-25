@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { getFilteredDevicesThunk, getDevicesThunk } from '../../store/thunks/adminThunks';
+import { getFilteredDevicesThunk, getDevicesThunk, deleteDeviceThunk } from '../../store/thunks/adminThunks';
 import { Link } from 'react-router-dom';
 
 const DeviceStats = (props) => {
@@ -30,8 +30,8 @@ const DeviceStats = (props) => {
 
   const inputTypes=['make', 'model'];
   return(
-    <div >
-      <div className='box' style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', width:'60%', margin:'auto', marginTop:'15px', marginBottom:'20px' }}>
+    <div className='page-container' style={{backgroundColor:'#02001f',width: '100vw', height:'100vh'}}>
+      <div className='box'>
         <div style={{display:'flex', alignItems:'center', justifyContent:'flex-start'}}>
           <label className='label'>
             Filter By:
@@ -82,7 +82,7 @@ const DeviceStats = (props) => {
           <button onClick={()=>handleResetSubmit()} className='button is-danger'>Reset</button>
         </div>
       </div>
-      <div className='box table-box'>
+      <div className='box'>
         <table className='table is-hoverable is-striped'>
           <thead>
             <tr>
@@ -111,6 +111,7 @@ const DeviceStats = (props) => {
                   <td>{dev.authority}</td>
                   <td>{dev.evidenceNum}</td>
                   <td>{dev.notes}</td>
+                  <td><button onClick={()=> props.deleteDevice(dev.id)} className='button is-danger is-small'>Delete</button></td>
                   </tr>
                 )
               })
@@ -126,7 +127,8 @@ const mapStateToProps = (props) => (props);
 const mapDispatchToProps = (dispatch) => ({
   // getRequests: () => dispatch(getRequestsThunk()),
   getFilteredDevices:(property, filter)=>dispatch(getFilteredDevicesThunk(property, filter)),
-  getDevices:(property, filter)=>dispatch(getDevicesThunk(property, filter))
+  getDevices:(property, filter)=>dispatch(getDevicesThunk(property, filter)),
+  deleteDevice: (id) => dispatch(deleteDeviceThunk(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeviceStats);

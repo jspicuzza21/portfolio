@@ -7,7 +7,7 @@ import ConsoleWidgets from './consoleWidgets'
 const Stats = (props) => {
 
   return(
-    <div >
+    <div style={{backgroundColor:'#02001f', height:'100vh'}}>
       <ConsoleWidgets/>
       <div style={{display:'flex', justifyContent:'space-around'}}>
         <div className='box' style={{height:'4.2rem'}}><Link to='/admin/stats/requests' style={{fontSize:'1.2rem'}}>Filter Requests</Link></div>

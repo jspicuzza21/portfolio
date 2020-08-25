@@ -6,7 +6,7 @@ const Logout = ({ user, logout }) => (
   <div className='flex-container'>
     <div className='box login ' style={{marginTop:'100px'}}>
       <h2 style={{fontSize:'1.5rem', textAlign:'center'}}>
-        {`Welcome ${user.email}!`}
+        {`Welcome ${user.name}!`}
       </h2>
       <button
         onClick={logout}

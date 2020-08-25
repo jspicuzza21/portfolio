@@ -19,10 +19,9 @@ import RequestStats from './admin/requestStats';
 import ManageUsers from './admin/manageUsers';
 import addUserAdminForm from './admin/addUserFormAdmin';
 import ConsoleWidgets from './admin/consoleWidgets';
-import ManageDB from './admin/manageDB';
-import ManageRequests from './admin/manageRequests';
 import Profile from './profile';
 import ChangePassword from './changePassword';
+import SignUpComplete from './login/signupComplete';
 
 export {
   LoginForm,
@@ -46,8 +45,7 @@ export {
   ManageUsers,
   addUserAdminForm,
   ConsoleWidgets,
-  ManageDB,
-  ManageRequests,
   Profile,
-  ChangePassword
+  ChangePassword,
+  SignUpComplete
 }

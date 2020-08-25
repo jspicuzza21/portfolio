@@ -48,7 +48,7 @@ import { useToast } from "@chakra-ui/core";
   }
 
     return(
-      <div className='page-container'>
+      <div className='top-container ' >
         <div className='form-container box' style={{display:'flex', flexDirection:'column', justifyContent:'center'}}>
           <h1 className='subtitle'>Add Device to Request</h1>
           <div>

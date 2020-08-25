@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
-import { LoginForm, LoggedIn, Home, SignUpForm, RequestForm, UserRequestDevices, EditRequest, AdminConsole, NewRequests, SingleRequest, RequestArchive, Stats, DeviceStats, RequestStats, ManageUsers, addUserAdminForm, ManageDB, ManageRequests, Profile, ChangePassword} from './components'
+import { LoginForm, LoggedIn, Home, SignUpForm, RequestForm, UserRequestDevices, EditRequest, AdminConsole, NewRequests, SingleRequest, RequestArchive, Stats, DeviceStats, RequestStats, ManageUsers, addUserAdminForm, Profile, ChangePassword, SignUpComplete} from './components'
 import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
@@ -26,8 +26,6 @@ class App extends Component{
               <Route exact path={'/admin'} component={AdminConsole}></Route>
               <Route exact path={'/admin/new-requests'} component={NewRequests}></Route>
               <Route exact path={'/admin/analytics'} component={Stats}></Route>
-              <Route exact path={'/admin/manage-db'} component={ManageDB}></Route>
-              <Route exact path={'/admin/manage-requests'} component={ManageRequests}></Route>
               <Route exact path={'/admin/users'} component={ManageUsers}></Route>
               <Route exact path={'/admin/view-request/:id'} component={SingleRequest}></Route>
               <Route exact path={'/admin/archive'} component={RequestArchive}></Route>
@@ -36,6 +34,7 @@ class App extends Component{
               <Route exact path={'/admin/add-user'} component={addUserAdminForm}></Route>
               <Route exact path={'/profile'} component={Profile}></Route>
               <Route exact path={'/change-password'} component={ChangePassword}></Route>
+              <Route exact path={'/signup-complete'} component={SignUpComplete}></Route>
               <Redirect to='/' />
             </Switch>
           </ThemeProvider>

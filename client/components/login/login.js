@@ -7,7 +7,6 @@ const Login = (props) => {
   const [email, setUsername] = useState('');
   const [password, setPassword] = useState('');
   
-  console.log(props)
   const handleSubmit = async (e) => {
     e.preventDefault();
     await props.login(email, password, history);
@@ -26,6 +25,10 @@ const Login = (props) => {
           <input value={password} type='password' onChange={(e) => setPassword(e.target.value)} className='input'></input>
         </label>
         <button  onClick={handleSubmit} type='submit' className='button is-primary'> Login </button>
+      {
+        props.user.failedLogin &&
+        <h1 style={{color:'red'}}>Incorrect username or password</h1>
+      }
       </form>
     </div>
   );

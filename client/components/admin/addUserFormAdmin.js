@@ -45,35 +45,37 @@ class AddUserAdmin extends Component{
   render(){ 
     const { email, name, department, password, role } = this.state
     return(
-      <div className='box'>
-        <form style={{display:'flex',flexDirection:'column', width: '30%'}}>
-          <h1 className='title'>Add User</h1>
-          <label className='label'>
-            Email:
-            <input value={email} type='username' name='email' onChange={this.handleInput} className='input'></input>
-          </label>
-          <label className='label'>
-            Name:
-            <input value={name} name='name' onChange={this.handleInput} className='input'></input>
-          </label>
-          <label className='label'>
-            Department:
-            <input value={department} name='department' onChange={this.handleInput} className='input'></input>
-          </label>
-          <label className='label'>
-            Password:
-            <input value={password} type='password' name='password' onChange={this.handleInput} className='input'></input>
-          </label>
-          <label className='label'>
-            Role:
-            <select value={role} name='role' onChange={this.handleInput} className='select'>
-              <option>-- Select ---</option>
-              <option>member</option>
-              <option>admin</option>
-            </select>
-          </label>
-          <button onClick={(e)=>{this.handleSubmit(e)}} className='button is-primary'>Submit</button>
-        </form>
+      <div className='page-container'>
+        <div className='box'>
+          <form style={{display:'flex',flexDirection:'column'}}>
+            <h1 className='title'>Add User</h1>
+            <label className='label'>
+              Email:
+              <input value={email} type='username' name='email' onChange={this.handleInput} className='input'></input>
+            </label>
+            <label className='label'>
+              Name:
+              <input value={name} name='name' onChange={this.handleInput} className='input'></input>
+            </label>
+            <label className='label'>
+              Department:
+              <input value={department} name='department' onChange={this.handleInput} className='input'></input>
+            </label>
+            <label className='label'>
+              Password:
+              <input value={password} type='password' name='password' onChange={this.handleInput} className='input'></input>
+            </label>
+            <label className='label'>
+              Role:
+              <select value={role} name='role' onChange={this.handleInput} className='select'>
+                <option>-- Select ---</option>
+                <option>member</option>
+                <option>admin</option>
+              </select>
+            </label>
+            <button onClick={(e)=>{this.handleSubmit(e)}} className='button is-primary'>Submit</button>
+          </form>
+      </div>
       </div>
     )
   }

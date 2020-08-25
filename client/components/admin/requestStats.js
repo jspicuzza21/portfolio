@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { getRequestsThunk, getFilteredRequestsThunk} from '../../store/thunks/adminThunks';
+import { getRequestsThunk, getFilteredRequestsThunk, adminDeleteRequestThunk} from '../../store/thunks/adminThunks';
 import { Link } from 'react-router-dom';
 
 const RequestStats = (props) => {
@@ -33,9 +33,9 @@ const RequestStats = (props) => {
   const inputTypes=['caseNumber', 'aP', 'suspect'];
   const dateInputs=['createdAt', 'updatedAt']
   return(
-    <div>
-      <div className='box' style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', width:'60%', margin:'auto', marginTop:'15px', marginBottom:'20px' }}>
-        <div style={{display:'flex', alignItems:'center', justifyContent:'flex-start'}}>
+    <div className='page-container' style={{backgroundColor:'#02001f',width: '100vw', height:'100vh'}}>
+      <div className='box'>
+        <div>
           <label className='label'>
             Filter By:
             <div className='select is-small' style={{margin:'5px'}}>
@@ -94,7 +94,7 @@ const RequestStats = (props) => {
           <button onClick={()=>handleResetSubmit()} className='button is-danger'>Reset</button>
         </div>
       </div>  
-      <div className='box table-box'>
+      <div className='box'>
         <table className='table is-hoverable is-striped'>
           <thead>
             <tr>
@@ -128,6 +128,7 @@ const RequestStats = (props) => {
                   <td>{req.urgency}</td>
                   <td>{req.devices.length}</td>
                   <td><Link to={`/admin/view-request/${req.id}`}> View</Link></td>
+                  <td><button onClick={()=> props.deleteRequest(req.id)} className='button is-danger is-small'>Delete</button></td>
                   </tr>
                 )
               })
@@ -143,6 +144,7 @@ const mapStateToProps = (props) => (props);
 const mapDispatchToProps = (dispatch) => ({
   getRequests: () => dispatch(getRequestsThunk()),
   getFilteredRequests:(property, filter)=>dispatch(getFilteredRequestsThunk(property, filter)),
+  deleteRequest: (id) => dispatch(adminDeleteRequestThunk(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(RequestStats);

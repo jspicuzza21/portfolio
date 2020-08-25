@@ -6,6 +6,7 @@ const initialState={
   loggedIn: false,
   role:'guest',
   initialLoadingComplete: false,
+  failedLogin:false
 }
 
 const initialRequestState={
@@ -28,8 +29,14 @@ const loginReducer=(state=initialState, action)=>{
         name: action.name,
         cellphone: action.cellphone,
         workPhone: action.workPhone,
-        department: action.department
+        department: action.department,
+        failedLogin:false
       };
+    case types.LOGIN_FAIL:
+      return {
+        ...state,
+        failedLogin:true
+      }
     case types.LOGOUT:
       return {
         ...state,
@@ -115,6 +122,11 @@ const adminReducer=(state=initialAdminState, action)=>{
       return {
         ...state,
         allReqs: action.payload,
+      }
+    case types.DELETE_DEVICE_ADMIN:
+      return {
+        ...state,
+        allDevs: action.payload,
       }
     default: return state;
   }

@@ -21,6 +21,7 @@ export const types = {
   DELETE_USER: 'DELETE_USER',
   ADD_USER_ADMIN: 'ADD_USER_ADMIN',
   DELETE_REQUEST_ADMIN: 'DELETE_REQUEST_ADMIN',
+  DELETE_DEVICE_ADMIN: 'DELETE_DEVICE_ADMIN'
 }
 
 const changeInitialLoading=()=>({

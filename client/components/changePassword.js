@@ -10,16 +10,17 @@ const ChangePassword = (props) =>{
   const [access, setAccess] = useState(false);
   const [failedAttempt, setFailedAttempt] = useState(false);
 
+  if(props.user.role==='member'||props.user.role==='admin'){
   return (
-    <div>
+    <div className='page-container'>
       <div className='box'>
         {!access &&
         <div>
-          <label>
+          <label className='label'>
             Old Password:
-            <input value={oldPassword} onChange={(e)=>setOldPassword(e.target.value)}></input>
+            <input className='input' type='password' value={oldPassword} onChange={(e)=>setOldPassword(e.target.value)}></input>
           </label>
-            <button onClick={async ()=>{
+            <button className='button' onClick={async ()=>{
               const { id } =  props.user;
               await axios.post(`api/users/verify/${id}`, {oldPassword })
               .then(async ({data})=> {  
@@ -40,26 +41,35 @@ const ChangePassword = (props) =>{
             <h1>Incorrect Password</h1>
           }
           { access &&
-          <div>
-              <label>
+          <div style={{display:'flex', flexDirection:'column', alignItems:"center", justifyContent:'center'}}>
+              <label className='label' style={{width:'100%'}}>
               New Password:
-              <input value={newPassword} onChange={(e)=>setNewPassword(e.target.value)}></input>
-            </label>
-              <label>
-              Confirm New Password:
-              <input value={newPassword2} onChange={(e)=>setNewPassword2(e.target.value)}></input>
-            </label>
-            <button onClick={()=>{
-              axios.put(`/api/users/pw/${props.user.id}`, {newPassword})
-              .then(()=> console.log('password reset success'))
-              .catch(e=> console.log(e))
-            }}>Submit</button>
+                <input className='input' type='password' value={newPassword} onChange={(e)=>setNewPassword(e.target.value)}></input>
+              </label>
+              <label className='label' style={{width:'100%'}}>
+              Confirm Password:
+                <input className='input' type='password' value={newPassword2} onChange={(e)=>setNewPassword2(e.target.value)}></input>
+              </label>
+            <button className='button' onClick={()=>{
+              if(newPassword===newPassword2){
+                axios.put(`/api/users/pw/${props.user.id}`, {newPassword})
+                  .then(()=> console.log('password reset success'))
+                  .catch(e=> console.log(e))
+              } else {
+                alert('Passwords do not match')
+              }
+              }}
+            >Submit</button>
           </div>
           }
       </div>
     </div>
   )
+  }else {
+    return <h1 style={{color:'white', textAlign:'center', marginTop:'200px'}}>Unathorized</h1>
+  }
 }
+
 
 const mapStateToProps = (props) => (props);
 const mapDispatchToProps = (dispatch) => ({

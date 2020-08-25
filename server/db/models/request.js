@@ -1,4 +1,4 @@
-const { UUID, UUIDV4, STRING } = require('sequelize');
+const { UUID, UUIDV4, STRING, BLOB } = require('sequelize');
 const db = require('./db');
 
 const Request = db.define('request',{
@@ -38,6 +38,9 @@ const Request = db.define('request',{
       notEmpty: true,
     },
   },
+  file:{
+    type: BLOB('long'),
+  }
 })
 
 module.exports=Request;

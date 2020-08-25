@@ -33,7 +33,7 @@ class SignUpForm extends Component{
       alert('Please fill out all required fields')
       return 
     } 
-    if (name.split(' ').length<2){
+    else if (name.split(' ').length<2){
       alert('Please enter first and last name')
     } 
     else if (validateEmail(email)) {
@@ -53,15 +53,18 @@ class SignUpForm extends Component{
         user_password: password
     };
 
-      emailjs.send('default_service','password', templateParams, 'user_tTsRr99N7kbLQSnRBWK41')
-        .then((response) => {
-          console.log('SUCCESS!', response.status, response.text);
-        }, (err) => {
-          console.log('FAILED...', err);
-        });
-    } else {
-        alert('Please enter a valid agency email.')
-      }
+    
+    emailjs.send('default_service','password', templateParams, 'user_tTsRr99N7kbLQSnRBWK41')
+    .then((response) => {
+      console.log('SUCCESS!', response.status, response.text);
+    }, (err) => {
+      console.log('FAILED...', err);
+    });
+    
+    history.push('/signup-complete')
+  } else {
+    alert('Please enter a valid agency email.')
+  }
   }
 
   render(){ 

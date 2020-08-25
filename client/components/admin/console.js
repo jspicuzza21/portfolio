@@ -14,11 +14,10 @@ const AdminConsole = (props) => {
   if(props.admin.allReqs[0]){
     newRequests=props.admin.allReqs.filter(req => req.status==='Submitted')
   }
-
   return(
-    <div >
+    <div style={{backgroundColor:'#242424',width: '100vw'}}>
       {newRequests &&
-      <div className='container admin-container'>
+      <div className='container admin-container' style={{backgroundColor:'#242424'}}>
         <div className='box admin-box' onClick={()=>props.history.push('/admin/new-requests')}>
           <h1 style={{fontSize:'1.1rem'}}>You have <span style={{color:'red'}}>{newRequests.length}</span> new requests.</h1>
           <div className='admin-image alert'>
@@ -33,10 +32,6 @@ const AdminConsole = (props) => {
         <div className='box admin-box' onClick={()=>props.history.push('/admin/analytics')}>
           <div className='admin-image stats'></div>
           <h2 style={{fontSize: '1.5rem'}}>Statistics</h2>
-        </div>
-        <div className='box admin-box' onClick={()=>props.history.push('/admin/manage-db')}>
-          <div className='admin-image db'></div>
-          <h2 style={{fontSize: '1.5rem'}}>Manage Database</h2>
         </div>
         <div className='box admin-box' onClick={()=>props.history.push('/admin/users')}>
           <div className=' admin-image users'></div>

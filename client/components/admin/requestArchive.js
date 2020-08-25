@@ -15,7 +15,7 @@ const RequestArchive = (props) => {
   }
 
   return(
-    <div >
+    <div style={{backgroundColor:'#242424', height:'100vh'}}>
       <div className='box table-box'>
         <table className='table is-hoverable is-striped'>
           <thead>

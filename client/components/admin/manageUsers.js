@@ -12,9 +12,9 @@ const ManageUsers = (props) =>{
   console.log(props)
 
   return(
-    <div>
+    <div className='page-container'>
       <AddUserAdmin />
-      <div className='box table-box'>
+      <div className='box' style={{width:'50%'}}>
         <table className='table is-hoverable is-striped'>
           <thead>
             <tr>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { whoami } from '../../store/thunks/loginThunks'
 import { addRequestThunk, getUserRequestsThunk, deleteRequestThunk, submitRequestThunk } from '../../store/thunks/requestThunks';
+import { white } from 'chalk';
 
 
 class RequestForm extends Component{
@@ -62,67 +63,71 @@ class RequestForm extends Component{
     const { caseNumber, crime, urgency, aP, suspect, service } = this.state;
     const { requests, history } = this.props;
 
+   if(this.props.user.role==='member'||this.props.user.role==='admin'){
     return(
       <div className='page-container'>
-        <div className='form-container box' style={{display:'flex', flexDirection:'column', justifyContent:'center'}}>
-          <h1 className='subtitle'>Create a New Request</h1>
-          <div>
-            <form className='columns' style={{width:'100%'}}>
-              <div className='column'>
-                <label className='label'>
-                  Internal Case Number:
-                  <input value={caseNumber} name='caseNumber' onChange={this.handleInput} className='input'></input>
-                </label>
-                <label className='label'>
-                  Crime Type:
-                  <input value={crime} name='crime' onChange={this.handleInput} className='input'></input>
-                </label>
-                <label className='label'>
-                  Service Requested:
-                  <div className='select is-small'>
-                    <select value={service} name='service' onChange={this.handleInput} className='select'>
-                      <option>-- Select ---</option>
-                      <option>Cellphone Extraction</option>
-                      <option>Forensic Exam</option>
-                      <option>Imaging</option>
-                      <option>DVR Extraction</option>
-                      <option>Video Editing</option>
-                      <option>On Scene Preview</option>
-                      <option>Search Warrant Assist</option>
-                      <option>Other</option>
-                    </select>
-                  </div>
-                </label>
-              </div>
-              <div className='column'>
-                <label className='label'>
-                  Suspect
-                  <input value={suspect} name='suspect' onChange={this.handleInput} className='input'></input>
-                </label>
-                <label className='label'>
-                  Assistant Prosecutor:
-                  <input value={aP} name='aP' onChange={this.handleInput} className='input'></input>
-                </label>
-                <label className='label'>
-                  Urgency:
-                  <div className='select is-small'>
-                    <select value={urgency} name='urgency' onChange={this.handleInput} className='select'>
-                      <option>-- Select ---</option>
-                      <option>High</option>
-                      <option>Medium</option>
-                      <option>Low</option>
-                    </select>
-                  </div>
-                </label>
-              </div>
-            </form>
+        <div className='top-container'>
+          <div className='form-container box' style={{display:'flex', flexDirection:'column', justifyContent:'center'}}>
+            <h1 className='subtitle'>Create a New Request</h1>
+            <div>
+              <form className='columns' style={{width:'100%'}}>
+                <div className='column'>
+                  <label className='label'>
+                    Internal Case Number:
+                    <input value={caseNumber} name='caseNumber' onChange={this.handleInput} className='input'></input>
+                  </label>
+                  <label className='label'>
+                    Crime Type:
+                    <input value={crime} name='crime' onChange={this.handleInput} className='input'></input>
+                  </label>
+                  <label className='label'>
+                    Service Requested:
+                    <div className='select is-small'>
+                      <select value={service} name='service' onChange={this.handleInput} className='select'>
+                        <option>-- Select ---</option>
+                        <option>Cellphone Extraction</option>
+                        <option>Forensic Exam</option>
+                        <option>Imaging</option>
+                        <option>DVR Extraction</option>
+                        <option>Video Editing</option>
+                        <option>On Scene Preview</option>
+                        <option>Search Warrant Assist</option>
+                        <option>Other</option>
+                      </select>
+                    </div>
+                  </label>
+                </div>
+                <div className='column'>
+                  <label className='label'>
+                    Suspect
+                    <input value={suspect} name='suspect' onChange={this.handleInput} className='input'></input>
+                  </label>
+                  <label className='label'>
+                    Assistant Prosecutor:
+                    <input value={aP} name='aP' onChange={this.handleInput} className='input'></input>
+                  </label>
+                  <label className='label'>
+                    Urgency:
+                    <div className='select is-small'>
+                      <select value={urgency} name='urgency' onChange={this.handleInput} className='select'>
+                        <option>-- Select ---</option>
+                        <option>High</option>
+                        <option>Medium</option>
+                        <option>Low</option>
+                      </select>
+                    </div>
+                  </label>
+                </div>
+              </form>
+            </div>
+            <button onClick={(e)=>{this.handleSubmit(e)}} className='button is-primary form-button'>Create</button>
           </div>
-          <button onClick={(e)=>{this.handleSubmit(e)}} className='button is-primary form-button'>Create</button>
+
         </div>
 
-        <div className='box table-box'>
+        <div className='table-container'>
           {requests.length===0 &&
-            <h1 className='subtitle'>Your do not have any requests.</h1>
+            <h1 className='subtitle' style={{textAlign:'center'}}>Your do not have any requests.</h1>
 
           } 
           {requests.length>0 &&
@@ -177,6 +182,9 @@ class RequestForm extends Component{
         </div>
       </div>
     )
+  } else {
+    return <h1 style={{color:'white', textAlign:'center', marginTop:'200px'}}>Unathorized</h1>
+  }
   }
 }
 

@@ -3,17 +3,19 @@ import { connect } from 'react-redux';
 import { logoutThunk } from '../../store/thunks/loginThunks';
 
 const Logout = ({ user, logout }) => (
-  <div>
-    <h2>
-      Welcome
-      {user.username}
-      !
-    </h2>
-    <button
-      onClick={logout}
-    >
-      Logout
-    </button>
+  <div className='flex-container'>
+    <div className='box login ' style={{marginTop:'100px'}}>
+      <h2 style={{fontSize:'1.5rem', textAlign:'center'}}>
+        {`Welcome ${user.name}!`}
+      </h2>
+      <button
+        onClick={logout}
+        className='button is-danger'
+        style={{width:'100px'}}
+      >
+        Logout
+      </button>
+    </div>
   </div>
 );
 

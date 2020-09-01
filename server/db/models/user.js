@@ -1,4 +1,4 @@
-const { STRING, UUID, UUIDV4, ENUM } = require('sequelize');
+const { STRING, UUID, UUIDV4, ENUM, BOOLEAN } = require('sequelize');
 const bcrypt = require('bcrypt');
 const db = require('./db');
 
@@ -38,11 +38,24 @@ const User = db.define('user', {
       notEmpty: true,
     },
   },
+  cellphone: {
+    type: STRING,
+  },
+  workPhone: {
+    type: STRING,
+  },
+  password: {
+    type: STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
+  },
   role: {
     type: ENUM,
     values: ['admin', 'guest', 'member'],
     allowNull: true
-  },
+  }
 })
 
 User.beforeCreate(async (instance) => {

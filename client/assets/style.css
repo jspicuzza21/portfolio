@@ -1,0 +1,213 @@
+body{
+  background-color: white;
+}
+
+.admin-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.admin-box{
+  height: 300px;
+  width: 350px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 100px
+}
+
+.admin-box:hover{
+  height: 340px;
+  width: 370px;
+}
+
+.widget-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 30px
+}
+
+.widget{
+  min-height: 140px;
+  min-width: 400px;
+  max-height: 140px;
+  text-align: center;
+}
+
+.inner-widget{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.admin-image{
+  width: 30%;
+  height: 45%;
+  background-color: BLUE;
+}
+
+.alert{
+  background: url('./images/alert.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.archive{
+  background: url('./images/archive.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.stats{
+  background: url('./images/stats.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.users{
+  background: url('./images/manageUsers.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.table{
+  text-align: center;
+  margin: auto;
+}
+
+.table-box{
+  width:95%;
+  margin: auto;
+}
+
+form{
+  margin: auto;
+  display: flex;
+  /* flex-direction: column; */
+  width: 80%;
+}
+
+.page-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* padding:15px; */
+}
+
+.form-button{
+  width: 100px;
+}
+
+.form-container{
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 275px;
+  max-width: 750px;
+}
+
+.top-container{
+  background-color:#242424;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:30px
+}
+
+form>button{
+  width: 100px;
+  align-self: center;
+}
+.home{
+  background: url('./images/unsplash.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+}
+
+.scpoLogo{
+  background: url('./images/The-Somerset-County-Prosecutor.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 225px;
+  width: 225px;
+}
+
+thead>tr>td{
+  font-weight: bold;
+}
+
+.login{
+  width:450px;
+  margin: auto;
+  margin-top: 100px;
+  min-width: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button{
+  margin:2.5px
+}
+
+.flex-container{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table-container{
+margin:50px
+}
+
+.nav-image{
+  background: url('./images/Picture1.png');
+  background-size: cover;
+  height: 70px;
+  width: 70px;
+}
+
+.profile{
+  width: 60%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+@media screen and (max-width: 1080px) {
+  .navbar-menu{
+    display: flex;
+    flex-direction: row;
+  }
+  .navbar-start{
+    display: flex;
+    flex-direction: row;
+  }
+  .navbar-end{
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.footer{
+  padding:1rem;
+  background-color: #242424;
+}
+
+.filter-box{
+  min-width: 300px;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

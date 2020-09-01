@@ -8,17 +8,23 @@ class LoginForm extends Component{
     super();
     this.showLoginOrLogout = this.showLoginOrLogout.bind(this);
   }
-
   componentDidMount(){
     whoami()
   }
   
+  
   showLoginOrLogout(){
-    return this.props.user.loggedIn ? <Logout /> : <Login />;
-  }
-
-  render(){
+    return (
+      <div className='home'>
+        <div>
+          { this.props.user.loggedIn ? <Logout /> : <Login history={this.props.history} />}
+        </div>
+      </div>
+      );
+    }
     
+    render(){
+      console.log(this.props.user)
     return (
       <div>
         {this.showLoginOrLogout()}

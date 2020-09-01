@@ -97,7 +97,7 @@ class UserRequestDevices extends Component{
             </table>
           </div>
           
-          <h1>Please upload a PDF of the legal process for all devices in one file.</h1>
+          {/* <h1>Please upload a PDF of the legal process for all devices in one file.</h1>
           <div className="file has-name is-fullwidth">
             <label className="file-label">
               <input className="file-input" type="file" name="resume" onChange={this.onFileChange}/>
@@ -114,7 +114,7 @@ class UserRequestDevices extends Component{
               </span>
             </label>
             <button onClick={this.onFileUpload} className='button'> Upload </button>
-          </div>
+          </div> */}
 
           <button className='button is-primary' onClick={()=>{
             this.props.submitRequest(this.props.match.params.id, history)

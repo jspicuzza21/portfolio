@@ -125,7 +125,6 @@ return (dispatch) => {
 export const submitRequestThunk = (id, history) => (dispatch) => {
   return axios.put(`/req/request/status/${id}`)
     .then(res => {
-      console.log(res.data)
       dispatch({
         type: types.UPDATE_REQUEST,
         payload: res.data

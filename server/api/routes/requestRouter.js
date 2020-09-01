@@ -99,7 +99,7 @@ requestRouter.put('/request/status/:id', async (req, res)=>{
     request.status='Submitted';
     const { status } = request
     await Request.update({status}, {where:{id}});
-    const requests = await Request.findAll();
+    const requests = await Request.findAll({where: {userId: req.user.id}});
     res.send(requests);
   }
   catch(e){ 

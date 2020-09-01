@@ -13,7 +13,7 @@ const Profile = (props) => {
         <h1 style={{fontSize:'1.4rem'}}>Cellphone: {props.user.cellphone}</h1>
         <h1 style={{fontSize:'1.4rem'}}>Work Phone: {props.user.workPhone}</h1>
         <div style={{alignSelf:'center'}}>
-          <button onClick={()=> window.location.hash='/change-password'} className='button is-info' style={{width:'150px'}}>Edit Profile</button>
+          <button onClick={()=> window.location.hash='/edit-profile'} className='button is-info' style={{width:'150px'}}>Edit Profile</button>
           <button onClick={()=> window.location.hash='/change-password'} className='button is-danger' style={{width:'150px'}}>Change Password</button>
         </div>
       </div>

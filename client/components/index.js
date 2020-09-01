@@ -22,6 +22,7 @@ import ConsoleWidgets from './admin/consoleWidgets';
 import Profile from './profile';
 import ChangePassword from './changePassword';
 import SignUpComplete from './login/signupComplete';
+import EditProfile from './editProfile';
 
 export {
   LoginForm,
@@ -47,5 +48,6 @@ export {
   ConsoleWidgets,
   Profile,
   ChangePassword,
-  SignUpComplete
+  SignUpComplete,
+  EditProfile
 }

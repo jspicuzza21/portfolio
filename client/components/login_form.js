@@ -12,6 +12,7 @@ class LoginForm extends Component{
     whoami()
   }
   
+  
   showLoginOrLogout(){
     return (
       <div className='home'>
@@ -20,9 +21,10 @@ class LoginForm extends Component{
         </div>
       </div>
       );
-  }
-  
-  render(){
+    }
+    
+    render(){
+      console.log(this.props.user)
     return (
       <div>
         {this.showLoginOrLogout()}

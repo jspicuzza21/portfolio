@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
-import { LoginForm, LoggedIn, Home, SignUpForm, RequestForm, UserRequestDevices, EditRequest, AdminConsole, NewRequests, SingleRequest, RequestArchive, Stats, DeviceStats, RequestStats, ManageUsers, addUserAdminForm, Profile, ChangePassword, SignUpComplete} from './components'
+import { LoginForm, LoggedIn, Home, SignUpForm, RequestForm, UserRequestDevices, EditRequest, AdminConsole, NewRequests, SingleRequest, RequestArchive, Stats, DeviceStats, RequestStats, ManageUsers, addUserAdminForm, Profile, ChangePassword, SignUpComplete, EditProfile} from './components'
 import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
 import NavBar from './components/nav';
 import { ThemeProvider } from "@chakra-ui/core";
+import Footer from './components/footer';
 
 
 class App extends Component{  
@@ -35,8 +36,10 @@ class App extends Component{
               <Route exact path={'/profile'} component={Profile}></Route>
               <Route exact path={'/change-password'} component={ChangePassword}></Route>
               <Route exact path={'/signup-complete'} component={SignUpComplete}></Route>
+              <Route exact path={'/edit-profile'} component={EditProfile}></Route>
               <Redirect to='/' />
             </Switch>
+            <Route render={() => <Footer />} />
           </ThemeProvider>
         </HashRouter >
       </Provider>

@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const { models: { Session, User } } = require('../db/index');
 const cors = require('cors');
 const { noDirectAccess, adminApiSecurityCheck, accessDeniedResponse, memberApiSecurityCheck } = require('../utils/security');
+const fileUpload = require('express-fileupload');
 
 const PORT = process.env.PORT || 3000;
 const PUBLIC_PATH = path.join(__dirname, '../../public');
@@ -50,7 +51,8 @@ app.use(express.static(DIST_PATH));
 app.use(express.static(ASSETS_PATH));
 app.use(express.static(IMAGES_PATH));
 app.use(cors());
-app.use(noDirectAccess)
+app.use(noDirectAccess);
+app.use(fileUpload());
 
 app.use('/admin', (req, res, next) => {
   try {

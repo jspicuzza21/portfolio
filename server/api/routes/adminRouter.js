@@ -43,11 +43,11 @@ adminRouter.get('/users', async (req, res)=>{
 adminRouter.get('/devices/filter/:filter', async (req, res)=>{
   try {
     adminApiSecurityCheck(req);
-  const devices = await Device.findAll();
-  const prop=Object.keys(req.query)[0]
-  const filter=req.query[prop];
-  const filteredResults=devices.filter(dev=> dev[prop]===filter)
-  res.send(filteredResults);
+    const devices = await Device.findAll();
+    const prop=Object.keys(req.query)[0]
+    const filter=req.query[prop];
+    const filteredResults=devices.filter(dev=> dev[prop]===filter)
+    res.send(filteredResults);
   }
   catch (err) {
     console.log(err)
@@ -61,8 +61,21 @@ adminRouter.get('/request/filter/:filter', async (req, res)=>{
     const requests = await Request.findAll({include:[Device, User]});
     const prop=Object.keys(req.query)[0]
     const filter=req.query[prop];
-    const filteredResults=requests.filter(dev=> dev[prop]===filter)
-    res.send(filteredResults);
+    if(prop!=='createdAt' && prop!=='updatedAt'){
+      const filteredResults=requests.filter(dev=> dev[prop]===filter)
+      res.send(filteredResults);
+    } else {
+      const filterMonth=filter.split(' ')[0]
+      const filterYear=filter.split(' ')[1]
+      filteredResults=requests.filter( request => {
+        let month = request[prop].toDateString().slice(4,7)
+        let year = request[prop].toDateString().slice(11,15)
+        if (month===filterMonth && year===filterYear){
+          return request
+        }
+      })
+      res.send(filteredResults)
+    }
   }catch (err) {
     console.log(err)
     accessDeniedResponse(err, res);

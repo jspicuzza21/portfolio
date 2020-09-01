@@ -1,5 +1,7 @@
 const { Router } = require('express');
 const { models:{ User, Session } }= require('../../db/index');
+const { adminApiSecurityCheck, accessDeniedResponse, memberApiSecurityCheck} = require('../../utils/security');
+
 
 const bcrypt = require('bcrypt');
 
@@ -94,6 +96,14 @@ userRouter.put('/users/pw/:id', async (req, res)=>{
   const user = await User.findOne({where: {id}})
   const hash = await bcrypt.hash(password2, 10);
   await user.update({password:hash}, {where:{id}});
+  res.sendStatus(200)
+})
+
+userRouter.put('/users/:id', async (req, res)=>{
+  const {id} =req.params;
+  const { name, department, cellphone, workPhone } = req.body;
+  const user = await User.findOne({where: {id}})
+  await user.update({name, department, cellphone, workPhone}, {where:{id}});
   res.sendStatus(200)
 })
 

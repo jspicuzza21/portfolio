@@ -38,9 +38,6 @@ const Request = db.define('request',{
       notEmpty: true,
     },
   },
-  file:{
-    type: BLOB('long'),
-  }
 })
 
 module.exports=Request;

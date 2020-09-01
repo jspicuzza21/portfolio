@@ -16,7 +16,7 @@ const NewRequests = (props) => {
 
   return(
     <div style={{backgroundColor:'#242424', height:'100vh'}}>
-      <div className='box table-box'>
+      <div className='box'>
         <table className='table is-hoverable is-striped'>
           <thead>
             <tr>

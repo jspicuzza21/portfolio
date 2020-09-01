@@ -3,6 +3,7 @@ const User = require('./user');
 const Session = require('./session');
 const Device = require('./device');
 const Request = require('./request');
+const Upload = require('./file');
 
 User.hasMany(Session);
 Session.belongsTo(User);
@@ -20,5 +21,6 @@ module.exports={
     Session,
     Device,
     Request,
+    Upload
   }
 };

@@ -1,6 +1,7 @@
 const { Router, request } = require('express');
 const { models:{ User, Request, Device } }= require('../../db/index');
 const { adminApiSecurityCheck, accessDeniedResponse, memberApiSecurityCheck} = require('../../utils/security');
+const Upload = require('../../db/models/file');
 
 const requestRouter = Router();
 
@@ -154,6 +155,43 @@ requestRouter.delete('/request/:id', async (req, res)=>{
     accessDeniedResponse(e, res);
   }
 })
+
+requestRouter.post('/upload',async (req, res)=> {
+  if(req.files===null){
+    return res.status(400).json({message: 'No File Uploaded'})
+  } 
+  // const file = req.files.myFile;
+  try{
+  const { name, data } = req.files.myFile;
+
+  const createdFile = await Upload.create({ name, data });
+  res.sendStatus(201)
+  }
+  catch(e){
+    console.log(e)
+    console.log('failed to upload file')
+  }
+  // file.mv(`${__dirname}../`, err =>{
+  //   if(err){
+  //     console.error(err);
+  //     return res.status(500).send(err);
+  //   } 
+  //   res.json({fileName: file.path, filePath: `uploads/${file.name}`})
+  // })
+})
+
+requestRouter.get('/upload',async (req, res)=> {
+  try{
+  const files = await Upload.findAll()
+  res.send(files)
+  }
+  catch(e){
+    console.log(e)
+    console.log('failed to get files')
+  }
+})
+
+
 
 module.exports={
   path: '/req',

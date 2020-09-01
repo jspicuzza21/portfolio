@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { DeviceForm } from '../index';
 import { getRequestsDevicesThunk, deleteDeviceThunk, submitRequestThunk } from '../../store/thunks/requestThunks';
-
+import axios from 'axios';
+import {downloadBlob} from '../../../server/utils/index';
 
 class UserRequestDevices extends Component{
   constructor(){
@@ -13,6 +14,7 @@ class UserRequestDevices extends Component{
     }
     this.onFileChange = this.onFileChange.bind(this);
     this.onFileUpload = this.onFileUpload.bind(this);
+    this.fileDownload = this.fileDownload.bind(this);
   }
 
   
@@ -24,7 +26,7 @@ class UserRequestDevices extends Component{
     this.setState({ selectedFile: event.target.files[0] }); 
   };
 
-  onFileUpload = () => { 
+  onFileUpload = async () => { 
     // Create an object of formData 
     const formData = new FormData(); 
     // Update the formData object 
@@ -34,14 +36,20 @@ class UserRequestDevices extends Component{
       this.state.selectedFile.name 
     ); 
     // Details of the uploaded file 
-    console.log(this.state.selectedFile); 
     // Request made to the backend api 
     // Send formData object 
-    // axios.post("api/uploadfile", formData); 
+    await axios.post('/req/upload', formData); 
   }; 
+
+  fileDownload = async() =>{
+    await axios.get('/req/upload')
+    .then(({data}) => {
+      downloadBlob(data[0].data.data)
+    })
+
+  }
   
   render(){
-    console.log(this.state)
     const { devices, history } = this.props;
     return(
       <div className='page-container'>
@@ -112,7 +120,8 @@ class UserRequestDevices extends Component{
             this.props.submitRequest(this.props.match.params.id, history)
             }} style={{width: '110px'}}>Submit</button>
         </div>
-
+            {/* <button onClick={this.fileDownload}> Download</button>
+            <a  onClick={this.fileDownload}> Download</a> */}
       </div>
     )
   }

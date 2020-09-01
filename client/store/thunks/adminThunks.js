@@ -66,6 +66,7 @@ export const getFilteredDevicesThunk = (property, filter)=> {
 }
 
 export const getFilteredRequestsThunk = (property, filter)=> {
+  console.log('prop', property,'filter', filter)
   return (dispatch) => {
     return axios.get(`/admin/request/filter/${property}?${property}=${filter}`)
     .then(({data})=>{

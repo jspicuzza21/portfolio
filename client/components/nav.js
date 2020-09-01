@@ -24,7 +24,7 @@ const NavBar = ({ whoAmI, user, history }) => {
   return (
     <div>
       <nav className={user.role==='admin'?'navbar is-dark' :"navbar is-light"} role="navigation" aria-label="main navigation">
-        <div id="navbarHeader" className='navbar-menu is-active' >
+        <div id="navbarHeader" className='navbar-menu' >
           <div className='navbar-start'>
             <div className='nav-image'>
 

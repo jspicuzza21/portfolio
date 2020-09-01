@@ -31,9 +31,9 @@ const DeviceStats = (props) => {
   const inputTypes=['make', 'model'];
   return(
     <div className='page-container' style={{backgroundColor:'#02001f',width: '100vw', height:'100vh'}}>
-      <div className='box'>
+      <div className='box filter-box'>
         <div style={{display:'flex', alignItems:'center', justifyContent:'flex-start'}}>
-          <label className='label'>
+          <label className='label' style={{margin:0}}>
             Filter By:
             <div className='select is-small' style={{margin:'5px'}}>
               <select value={filter} onChange={handleInput}>

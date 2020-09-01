@@ -13,8 +13,10 @@ const ManageUsers = (props) =>{
 
   return(
     <div className='page-container'>
-      <AddUserAdmin />
-      <div className='box' style={{width:'50%'}}>
+      <div className='top-container'>
+        <AddUserAdmin />
+      </div>
+      <div>
         <table className='table is-hoverable is-striped'>
           <thead>
             <tr>
@@ -38,7 +40,7 @@ const ManageUsers = (props) =>{
                     { user.id !== props.user.id &&
                       <td><button onClick={()=> props.deleteUser(user.id)} className='button is-danger is-outlined is-small'>Delete</button></td>
                     }
-                    <td><button className='button is-info is-outlined is-small'>Edit</button></td>
+                    {/* <td><button className='button is-info is-outlined is-small'>Edit</button></td> */}
                   </tr>
                 )
               })

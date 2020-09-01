@@ -26,6 +26,7 @@
     "emailjs-com": "^2.6.3",
     "emotion-theming": "^10.0.27",
     "express": "^4.17.1",
+    "express-fileupload": "^1.2.0",
     "file-loader": "^6.0.0",
     "node-dev": "^5.1.0",
     "pg": "^8.3.0",

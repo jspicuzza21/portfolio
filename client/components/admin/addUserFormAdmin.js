@@ -45,7 +45,7 @@ class AddUserAdmin extends Component{
   render(){ 
     const { email, name, department, password, role } = this.state
     return(
-      <div className='page-container'>
+      <div className='top-container'>
         <div className='box'>
           <form style={{display:'flex',flexDirection:'column'}}>
             <h1 className='title'>Add User</h1>

@@ -106,7 +106,8 @@ form{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50%;
+  min-width: 275px;
+  max-width: 750px;
 }
 
 .top-container{
@@ -195,4 +196,18 @@ margin:50px
     display: flex;
     flex-direction: row;
   }
+}
+
+.footer{
+  padding:1rem;
+  background-color: #242424;
+}
+
+.filter-box{
+  min-width: 300px;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

@@ -52,7 +52,7 @@ import { useToast } from "@chakra-ui/core";
         <div className='form-container box' style={{display:'flex', flexDirection:'column', justifyContent:'center'}}>
           <h1 className='subtitle'>Add Device to Request</h1>
           <div>
-            <form className='columns' style={{width:'100%'}}>
+            <form className='columns' style={{width:'100%', marginLeft:0, marginRight:0}}>
               <div className='column'>
                 <label className='label'>
                   Device Type:

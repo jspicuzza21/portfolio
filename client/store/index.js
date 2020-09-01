@@ -10,11 +10,6 @@ import reducer from './reducer';
 // }
 
 
-const store = createStore(reducer, 
-  compose(
-    applyMiddleware(thunks),
-    window.__REDUX_DEVTOOLS_EXTENSION__&& window.__REDUX_DEVTOOLS_EXTENSION__()
-    )
-);
+const store = createStore(reducer,applyMiddleware(thunks));
 
 export default store; 

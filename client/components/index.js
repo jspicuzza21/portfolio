@@ -1,6 +1,5 @@
-import LoginForm from './login_form';
-import LoggedIn from './logged_in';
-import LoadingComponent from './loading_component';
+import LoginForm from './login/login_form';
+import LoggedIn from './login/logged_in';
 import Home from './home';
 import Login from './login/login';
 import Logout from './login/logout';
@@ -19,15 +18,14 @@ import RequestStats from './admin/requestStats';
 import ManageUsers from './admin/manageUsers';
 import addUserAdminForm from './admin/addUserFormAdmin';
 import ConsoleWidgets from './admin/consoleWidgets';
-import Profile from './profile';
-import ChangePassword from './changePassword';
+import Profile from './login/profile';
+import ChangePassword from './login/changePassword';
 import SignUpComplete from './login/signupComplete';
-import EditProfile from './editProfile';
+import EditProfile from './login/editProfile';
 
 export {
   LoginForm,
   LoggedIn,
-  LoadingComponent,
   Home,
   Login,
   Logout,

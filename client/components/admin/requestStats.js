@@ -40,7 +40,7 @@ const RequestStats = (props) => {
   const months=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
   const years = ['2020', '2021', '2022', '2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030']
   return(
-    <div className='page-container' style={{backgroundColor:'#02001f',width: '100vw', height:'100vh'}}>
+    <div className='page-container' style={{backgroundColor:'#02001f',width: '100vw', height:'100vh', padding:'20px'}}>
       <div className='box filter-box'>
         <div style={{display:'flex', alignItems:'center'}}>
           <label className='label' style={{margin:0}}>

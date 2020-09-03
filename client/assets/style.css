@@ -211,3 +211,8 @@ margin:50px
   justify-content: center;
   align-items: center;
 }
+
+.box-table{
+  width:90%;
+  margin: auto;
+}

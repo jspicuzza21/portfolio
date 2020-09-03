@@ -6,8 +6,6 @@ import { Provider } from 'react-redux';
 import store from './store';
 import NavBar from './components/nav';
 import { ThemeProvider } from "@chakra-ui/core";
-import Footer from './components/footer';
-
 
 class App extends Component{  
   render(){
@@ -39,7 +37,6 @@ class App extends Component{
               <Route exact path={'/edit-profile'} component={EditProfile}></Route>
               <Redirect to='/' />
             </Switch>
-            <Route render={() => <Footer />} />
           </ThemeProvider>
         </HashRouter >
       </Provider>

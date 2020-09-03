@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { whoami } from '../store/thunks/loginThunks';
+import { whoami } from '../../store/thunks/loginThunks';
 
 
 class LoggedIn extends Component{

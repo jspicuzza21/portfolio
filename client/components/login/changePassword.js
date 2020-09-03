@@ -10,6 +10,8 @@ const ChangePassword = (props) =>{
   const [access, setAccess] = useState(false);
   const [failedAttempt, setFailedAttempt] = useState(false);
 
+  console.log(props)
+
   if(props.user.role==='member'||props.user.role==='admin'){
   return (
     <div className='page-container' style={{height:'100vh'}}>
@@ -39,7 +41,7 @@ const ChangePassword = (props) =>{
           }
 
             {failedAttempt &&
-              <h1>Incorrect Password</h1>
+              <h1 style={{color:'red'}}>Incorrect Password</h1>
             }
             { access &&
             <div style={{display:'flex', flexDirection:'column', alignItems:"center", justifyContent:'center'}}>
@@ -54,7 +56,8 @@ const ChangePassword = (props) =>{
               <button className='button' onClick={()=>{
                 if(newPassword===newPassword2){
                   axios.put(`/api/users/pw/${props.user.id}`, {newPassword})
-                    .then(()=> console.log('password reset success'))
+                    .then(()=> alert('Password Change Sucessful'))
+                    .then(()=> props.history.push('/profile'))
                     .catch(e=> console.log(e))
                 } else {
                   alert('Passwords do not match')

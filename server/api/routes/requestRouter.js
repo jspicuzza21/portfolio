@@ -146,7 +146,7 @@ requestRouter.delete('/request/:id', async (req, res)=>{
     const deletedReq = await Request.findByPk(req.params.id);
     await deletedReq.destroy();
     await Device.destroy({ where: { requestId: null } })
-    const requests = await Request.findAll();
+    const requests = await Request.findAll({where: {userId:req.user.id}});
     const devices = await Device.findAll();
     res.send({requests, devices});
   }

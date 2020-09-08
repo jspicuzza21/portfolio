@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { loginThunk, whoami } from '../../store/thunks/loginThunks';
-import store from '../../store/index.js';
+import { loginThunk } from '../../store/thunks/loginThunks';
 
 const Login = (props) => {
   const [email, setUsername] = useState('');

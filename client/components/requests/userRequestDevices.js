@@ -4,52 +4,52 @@ import { DeviceForm } from '../index';
 import { getRequestsDevicesThunk, deleteDeviceThunk, submitRequestThunk } from '../../store/thunks/requestThunks';
 import axios from 'axios';
 import {downloadBlob} from '../../../server/utils/index';
+import storageRef from '../../../server/firebase';
+
 
 class UserRequestDevices extends Component{
   constructor(){
     super()
     this.state={
       selectedFile:null,
-      fileUploaded:false
+      fileUploaded:false,
+      uploadedFiles:[]
     }
     this.onFileChange = this.onFileChange.bind(this);
     this.onFileUpload = this.onFileUpload.bind(this);
     this.fileDownload = this.fileDownload.bind(this);
   }
-
+  
   
   async componentDidMount(){
     await this.props.getDevices(this.props.match.params.id)
   }
-
+  
   onFileChange = event => { 
     this.setState({ selectedFile: event.target.files[0] }); 
   };
-
+  
   onFileUpload = async () => { 
-    // Create an object of formData 
-    const formData = new FormData(); 
-    // Update the formData object 
-    formData.append( 
-      "myFile", 
-      this.state.selectedFile, 
-      this.state.selectedFile.name 
-    ); 
-    // Details of the uploaded file 
-    // Request made to the backend api 
-    // Send formData object 
-    await axios.post('/req/upload', formData); 
+    try{
+      const docsRef = storageRef.child(this.state.selectedFile.name);
+      docsRef.put(this.state.selectedFile)
+      .then((snapshot)=> {
+        console.log('Uploaded a blob or file!');
+        console.log(this)
+        this.setState({uploadedFiles: [...this.state.uploadedFiles, this.state.selectedFile.name]})
+        this.setState({selectedFile: null})
+      });
+    }catch(e){
+      console.log('failed to upload')
+      console.log(e)
+    }
   }; 
-
+  
   fileDownload = async() =>{
-    await axios.get('/req/upload')
-    .then(({data}) => {
-      downloadBlob(data[0].data.data)
-    })
-
   }
   
   render(){
+    console.log(this.state)
     const { devices, history } = this.props;
     return(
       <div className='page-container'>
@@ -97,8 +97,8 @@ class UserRequestDevices extends Component{
             </table>
           </div>
           
-          {/* <h1>Please upload a PDF of the legal process for all devices in one file.</h1>
-          <div className="file has-name is-fullwidth">
+          <h1>Please upload the legal process for all devices in PDF format.</h1>
+          <div className="file has-name is-fullwidth" style={{alignItems:'center'}}>
             <label className="file-label">
               <input className="file-input" type="file" name="resume" onChange={this.onFileChange}/>
               <span className="file-cta">
@@ -114,14 +114,21 @@ class UserRequestDevices extends Component{
               </span>
             </label>
             <button onClick={this.onFileUpload} className='button'> Upload </button>
-          </div> */}
+          </div>
+
+          {this.state.uploadedFiles.length>0 &&
+          <div style={{color:'green'}}>
+            <h2>Files uploaded Successfully</h2>
+            <ol>
+              {this.state.uploadedFiles.map(file=> <li key={file}>{file}</li>)}
+            </ol>
+          </div>
+          }
 
           <button className='button is-primary' onClick={()=>{
             this.props.submitRequest(this.props.match.params.id, history)
-            }} style={{width: '110px'}}>Submit</button>
+            }} style={{width: '130px'}}>Submit Request</button>
         </div>
-            {/* <button onClick={this.fileDownload}> Download</button>
-            <a  onClick={this.fileDownload}> Download</a> */}
       </div>
     )
   }

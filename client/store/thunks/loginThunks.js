@@ -16,7 +16,6 @@ export const loginThunk = (email, password, history) => (dispatch) => {
         initialLogin: true
       }
       dispatch(login(user));
-      history.push('/profile')
     })
     .catch(() => {
       dispatch(loginFail('Incorrect email or password'));

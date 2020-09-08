@@ -32,7 +32,6 @@ class EditRequest extends Component{
       urgency:req.urgency,
       userId:req.userId,
       aP:req.aP,
-      suspect:req.suspect,
       service:req.service,
     })
   }
@@ -44,14 +43,13 @@ class EditRequest extends Component{
   handleSubmit(e){
     e.preventDefault();
     const { history } = this.props;
-    const { caseNumber, crime, urgency, userId, aP, suspect, service } = this.state;
+    const { caseNumber, crime, urgency, userId, aP, service } = this.state;
     const newRequest={
       caseNumber,
       crime,
       urgency,
       userId,
       aP,
-      suspect,
       service
     }
     this.props.updateRequest(newRequest, this.props.match.params.id, history)
@@ -78,6 +76,12 @@ class EditRequest extends Component{
                 Crime Type:
                 <input value={crime} name='crime' onChange={this.handleInput} className='input'></input>
               </label>
+            </div>
+            <div className='column'>
+              <label className='label'>
+                Assistant Prosecutor:
+                <input value={aP} name='aP' onChange={this.handleInput} className='input'></input>
+              </label>
               <label className='label'>
                 Service Requested:
                 <div className='select is-small'>
@@ -89,16 +93,6 @@ class EditRequest extends Component{
                     <option>DVR Extraction</option>
                   </select>
                 </div>
-              </label>
-            </div>
-            <div className='column'>
-              <label className='label'>
-                Suspect
-                <input value={suspect} name='suspect' onChange={this.handleInput} className='input'></input>
-              </label>
-              <label className='label'>
-                Assistant Prosecutor:
-                <input value={aP} name='aP' onChange={this.handleInput} className='input'></input>
               </label>
               <label className='label'>
                 Urgency:

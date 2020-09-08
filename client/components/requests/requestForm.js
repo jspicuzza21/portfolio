@@ -172,6 +172,7 @@ class RequestForm extends Component{
             }
                 </tbody>
             </table>
+            <h1 style={{textAlign:'center', color:'red'}}>Please make sure to submit requests once all information is filled out and legal process has been uploaded.</h1>
           </div>
           }
         </div>

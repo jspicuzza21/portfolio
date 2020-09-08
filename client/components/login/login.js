@@ -10,7 +10,6 @@ const Login = (props) => {
     e.preventDefault();
     await props.login(email, password, history);
   };
-
   return (
     <div className='flex-container'>
       <form className='box login' style={{marginTop:'100px'}}>

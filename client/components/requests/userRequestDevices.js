@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { DeviceForm } from '../index';
 import { getRequestsDevicesThunk, deleteDeviceThunk, submitRequestThunk } from '../../store/thunks/requestThunks';
-import axios from 'axios';
-import {downloadBlob} from '../../../server/utils/index';
 import storageRef from '../../../server/firebase';
 
 
@@ -35,7 +33,6 @@ class UserRequestDevices extends Component{
       docsRef.put(this.state.selectedFile)
       .then((snapshot)=> {
         console.log('Uploaded a blob or file!');
-        console.log(this)
         this.setState({uploadedFiles: [...this.state.uploadedFiles, this.state.selectedFile.name]})
         this.setState({selectedFile: null})
       });
@@ -55,7 +52,34 @@ class UserRequestDevices extends Component{
       <div className='page-container'>
         <div style={{display:"flex", flexDirection:'column', alignItems:'center'}}>
           <DeviceForm/>
-          <div className='table-container'>
+          <div style={{padding:'10px'}}>
+            <h1>Please upload the legal process for all devices in PDF format.</h1>
+            <div className="file has-name is-fullwidth" style={{alignItems:'center'}}>
+              <label className="file-label">
+                <input className="file-input" type="file" name="resume" onChange={this.onFileChange}/>
+                <span className="file-cta">
+                  <span className="file-icon">
+                    <i className="fas fa-upload"></i>
+                  </span>
+                  <span className="file-label">
+                    Choose a file…
+                  </span>
+                </span>
+                <span className="file-name">
+                  {this.state.selectedFile? this.state.selectedFile.name : 'No file uploaded'}
+                </span>
+              </label>
+              <button onClick={this.onFileUpload} className='button'> Upload </button>
+            </div>
+            {this.state.uploadedFiles.length>0 &&
+            <div style={{color:'green', textAlign:'center'}}>
+              <ol>
+                {this.state.uploadedFiles.map(file=> <li key={file} style={{listStyle:'none'}}>{file} uploaded sucessfully!</li>)}
+              </ol>
+            </div>
+            }
+          </div>
+          <div className='table-container' style={{marginTop:'5px'}}>
             <h1 className='subtitle'>Devices in Request</h1>
             <table className='table is-striped is-hoverable'>
               <thead>
@@ -96,38 +120,12 @@ class UserRequestDevices extends Component{
               </tbody>
             </table>
           </div>
-          
-          <h1>Please upload the legal process for all devices in PDF format.</h1>
-          <div className="file has-name is-fullwidth" style={{alignItems:'center'}}>
-            <label className="file-label">
-              <input className="file-input" type="file" name="resume" onChange={this.onFileChange}/>
-              <span className="file-cta">
-                <span className="file-icon">
-                  <i className="fas fa-upload"></i>
-                </span>
-                <span className="file-label">
-                  Choose a file…
-                </span>
-              </span>
-              <span className="file-name">
-                {this.state.selectedFile? this.state.selectedFile.name : 'No file uploaded'}
-              </span>
-            </label>
-            <button onClick={this.onFileUpload} className='button'> Upload </button>
+            <h1 style={{textAlign:'center', color:'red'}}>Please make sure to submit request once all information is filled out and legal process has been uploaded.</h1>
+          <div style={{margin:'10px'}}>
+            <button className='button is-primary' onClick={()=>{
+              this.props.submitRequest(this.props.match.params.id, history)
+              }} style={{width: '130px'}}>Submit Request</button>
           </div>
-
-          {this.state.uploadedFiles.length>0 &&
-          <div style={{color:'green'}}>
-            <h2>Files uploaded Successfully</h2>
-            <ol>
-              {this.state.uploadedFiles.map(file=> <li key={file}>{file}</li>)}
-            </ol>
-          </div>
-          }
-
-          <button className='button is-primary' onClick={()=>{
-            this.props.submitRequest(this.props.match.params.id, history)
-            }} style={{width: '130px'}}>Submit Request</button>
         </div>
       </div>
     )

@@ -36,27 +36,28 @@ class RequestForm extends Component{
   handleSubmit(e){
     e.preventDefault();
     const { history } = this.props;
-    const { caseNumber, crime, urgency, userId, aP, suspect, service } = this.state;
+    const { caseNumber, crime, urgency, userId, aP,  service } = this.state;
     const newRequest={
       caseNumber,
       crime,
       urgency,
       userId,
       aP,
-      suspect,
       service
     }
-    this.props.addRequest(newRequest, history)
-    this.setState({
-      caseNumber:'',
-      crime:'',
-      urgency:'',
-      userId:'',
-      aP:'',
-      suspect:'',
-      service:''
-    })
-    
+    if(caseNumber===''||service===''){
+      alert('Please fill out all required fields.')
+    } else{
+      this.props.addRequest(newRequest, history)
+      this.setState({
+        caseNumber:'',
+        crime:'',
+        urgency:'',
+        userId:'',
+        aP:'',
+        service:''
+      })
+    }
   }
 
   render(){ 
@@ -73,15 +74,21 @@ class RequestForm extends Component{
               <form className='columns' style={{width:'100%'}}>
                 <div className='column'>
                   <label className='label'>
-                    Internal Case Number:
+                    Internal Case Number:<span style={{color:'red'}}>*</span>
                     <input value={caseNumber} name='caseNumber' onChange={this.handleInput} className='input'></input>
                   </label>
                   <label className='label'>
                     Crime Type:
                     <input value={crime} name='crime' onChange={this.handleInput} className='input'></input>
                   </label>
+                </div>
+                <div className='column'>
                   <label className='label'>
-                    Service Requested:
+                    Assistant Prosecutor:
+                    <input value={aP} name='aP' onChange={this.handleInput} className='input'></input>
+                  </label>
+                  <label className='label'>
+                    Service Requested:<span style={{color:'red'}}>*</span>
                     <div className='select is-small'>
                       <select value={service} name='service' onChange={this.handleInput} className='select'>
                         <option>-- Select ---</option>
@@ -95,16 +102,6 @@ class RequestForm extends Component{
                         <option>Other</option>
                       </select>
                     </div>
-                  </label>
-                </div>
-                <div className='column'>
-                  <label className='label'>
-                    Suspect
-                    <input value={suspect} name='suspect' onChange={this.handleInput} className='input'></input>
-                  </label>
-                  <label className='label'>
-                    Assistant Prosecutor:
-                    <input value={aP} name='aP' onChange={this.handleInput} className='input'></input>
                   </label>
                   <label className='label'>
                     Urgency:
@@ -138,7 +135,6 @@ class RequestForm extends Component{
                 <tr>
                   <th>Case Number</th>
                   <th>Crime Type</th>
-                  <th>Suspect</th>
                   <th>Assistant Prosecutor</th>
                   <th>Service</th>
                   <th>Status</th>
@@ -152,7 +148,6 @@ class RequestForm extends Component{
                     <tr key={req.id}>
                       <td>{req.caseNumber}</td>
                       <td>{req.crime}</td>
-                      <td>{req.suspect}</td>
                       <td>{req.aP}</td>
                       <td>{req.service}</td>
                       <td>{req.status}</td>

@@ -8,8 +8,8 @@ const requestRouter = Router();
 requestRouter.post('/request', async (req, res) => {
   try {
     memberApiSecurityCheck(req);
-    const { caseNumber, crime, urgency, userId, suspect, aP, service } = req.body;
-    const createdReq = await Request.create({ caseNumber, crime, urgency, userId, service, aP, suspect });
+    const { caseNumber, crime, urgency, userId, aP, service } = req.body;
+    const createdReq = await Request.create({ caseNumber, crime, urgency, userId, service, aP});
     res.status(201).send(createdReq)
   } catch (e) {
     accessDeniedResponse(err, res);
@@ -79,8 +79,8 @@ requestRouter.put('/request/:id', async (req, res)=>{
   try{
     memberApiSecurityCheck(req);
     const { id } = req.params;
-    const { caseNumber, crime, urgency, suspect, aP, service } = req.body;
-    await Request.update({caseNumber, crime, urgency, suspect, aP, service}, {where:{id}})
+    const { caseNumber, crime, urgency, aP, service } = req.body;
+    await Request.update({caseNumber, crime, urgency, aP, service}, {where:{id}})
     const requests=Request.findAll();
     res.send(requests);
   }
@@ -156,30 +156,6 @@ requestRouter.delete('/request/:id', async (req, res)=>{
   }
 })
 
-requestRouter.post('/upload',async (req, res)=> {
-  if(req.files===null){
-    return res.status(400).json({message: 'No File Uploaded'})
-  } 
-  // const file = req.files.myFile;
-  try{
-  const { name, data } = req.files.myFile;
-
-  const createdFile = await Upload.create({ name, data });
-  res.sendStatus(201)
-  }
-  catch(e){
-    console.log(e)
-    console.log('failed to upload file')
-  }
-  // file.mv(`${__dirname}../`, err =>{
-  //   if(err){
-  //     console.error(err);
-  //     return res.status(500).send(err);
-  //   } 
-  //   res.json({fileName: file.path, filePath: `uploads/${file.name}`})
-  // })
-})
-
 requestRouter.get('/upload',async (req, res)=> {
   try{
   const files = await Upload.findAll()
@@ -190,8 +166,6 @@ requestRouter.get('/upload',async (req, res)=> {
     console.log('failed to get files')
   }
 })
-
-
 
 module.exports={
   path: '/req',

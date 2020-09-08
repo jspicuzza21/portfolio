@@ -2,6 +2,7 @@ import React, {useState, Component } from 'react';
 import { connect } from 'react-redux';
 import { addDeviceThunk } from '../../store/thunks/requestThunks';
 import { useToast } from "@chakra-ui/core";
+import { auth } from 'firebase';
 
   const DeviceForm =(props)=>{
   const [make, setMake] = useState('');
@@ -28,23 +29,26 @@ import { useToast } from "@chakra-ui/core";
       devType,
       evidenceNum,
     }
-    toast({
-      title: "Device Added.",
-      description: "You've added a device to this request.",
-      status: "success",
-      duration: 9000,
-      isClosable: true,
-    })
-
-    props.addDevice(newDev)
-    setMake('')
-    setModel('')
-    setNotes('')
-    setPin('')
-    setSerial('')
-    setAuthority('')
-    setDevType('')
-    setEvidenceNum('')
+    if(devType==='' || make==='' || model==='' || serial===''||authority===''||evidenceNum===''){
+      alert("Please fill out all required fields")
+    } else {
+      toast({
+        title: "Device Added.",
+        description: "You've added a device to this request.",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      })
+      props.addDevice(newDev)
+      setMake('')
+      setModel('')
+      setNotes('')
+      setPin('')
+      setSerial('')
+      setAuthority('')
+      setDevType('')
+      setEvidenceNum('')
+    }
   }
 
     return(
@@ -55,7 +59,7 @@ import { useToast } from "@chakra-ui/core";
             <form className='columns' style={{width:'100%', marginLeft:0, marginRight:0}}>
               <div className='column'>
                 <label className='label'>
-                  Device Type:
+                  Device Type:<span style={{color:'red'}}>*</span>
                   <div className='select is-small'>
                     <select value={devType} name='devType' onChange={(e)=> setDevType(e.target.value)} className='select'>
                       <option>-- Select ---</option>
@@ -72,21 +76,21 @@ import { useToast } from "@chakra-ui/core";
                   </div>
                 </label>
                 <label className='label'>
-                  Make:
+                  Make:<span style={{color:'red'}}>*</span>
                   <input value={make} name='make' onChange={(e)=> setMake(e.target.value)} className='input'></input>
                 </label>
                 <label className='label'>
-                  Model:
+                  Model:<span style={{color:'red'}}>*</span>
                   <input value={model} name='model' onChange={(e)=> setModel(e.target.value)} className='input'></input>
                 </label>
                 <label className='label'>
-                  Serial Number / IMEI:
+                  Serial Number / IMEI:<span style={{color:'red'}}>*</span>
                   <input value={serial} name='serial' onChange={(e)=> setSerial(e.target.value)} className='input'></input>
                 </label>
               </div>
               <div className='column'>
                 <label className='label'>
-                  Legal Authority:
+                  Legal Authority:<span style={{color:'red'}}>*</span>
                   <div className='select is-small'>
                     <select value={authority} name='authority' onChange={(e)=> setAuthority(e.target.value)} className='select'>
                       <option>-- Select ---</option>
@@ -101,7 +105,7 @@ import { useToast } from "@chakra-ui/core";
                   <input value={pin} name='pin' onChange={(e)=> setPin(e.target.value)} className='input'></input>
                 </label>
                 <label className='label'>
-                  Agency Evidence #:
+                  Agency Evidence #:<span style={{color:'red'}}>*</span>
                   <input value={evidenceNum} name='evidenceNum' onChange={(e)=> setEvidenceNum(e.target.value)} className='input'></input>
                 </label>
                 <label className='label'>

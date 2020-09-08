@@ -18,10 +18,6 @@ const Request = db.define('request',{
       notEmpty: true,
     },
   },
-  suspect:{
-    type: STRING,
-    defaultValue:'Unknown'
-  },
   aP:{
     type: STRING,
   },

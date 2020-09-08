@@ -46,7 +46,6 @@ class UserRequestDevices extends Component{
   }
   
   render(){
-    console.log(this.state)
     const { devices, history } = this.props;
     return(
       <div className='page-container'>

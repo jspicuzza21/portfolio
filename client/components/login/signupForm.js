@@ -72,28 +72,28 @@ class SignUpForm extends Component{
     return(
       <div className='home'>
         <div className='flex-container'>
-          <form className='box' style={{width:'40%', marginTop:'100px'}}>
+          <form className='box' style={{width:'425px', marginTop:'100px', display:'flex', flexDirection:'column'}}>
             <label className='label'>
-              Email:
+              Email:<span style={{color:'red'}}>*</span>
               <input value={email} type='username' name='email' onChange={this.handleInput} className={email==='' ? 'is-danger input' : 'input'}></input>
             </label>
             <label className='label'>
-              Name:
+              Name:<span style={{color:'red'}}>*</span>
               <input value={name} name='name' onChange={this.handleInput} className={name==='' ? 'is-danger input' : 'input'}></input>
             </label>
             <label className='label'>
-              Department:
+              Department:<span style={{color:'red'}}>*</span>
               <input value={department} name='department' onChange={this.handleInput} className={department==='' ? 'is-danger input' : 'input'}></input>
             </label>
             <label className='label'>
-              Cellphone:
-              <input value={cellphone} name='cellphone' onChange={this.handleInput} className={cellphone==='' ? 'is-danger input' : 'input'}></input>
-            </label>
-            <label className='label'>
-              Work Phone:
+              Work Phone:<span style={{color:'red'}}>*</span>
               <input value={workPhone} name='workPhone' onChange={this.handleInput} className={workPhone==='' ? 'is-danger input' : 'input'}></input>
             </label>
-            <button onClick={(e)=>{this.handleSubmit(e)}} className='button is-primary'>Submit</button>
+            <label className='label'>
+              Cellphone:
+              <input value={cellphone} name='cellphone' onChange={this.handleInput} className='input'></input>
+            </label>
+            <button onClick={(e)=>{this.handleSubmit(e)}} className='button is-primary' style={{width:'130px'}}>Create Account</button>
           </form>
         </div>
       </div>

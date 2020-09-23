@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { loginThunk } from '../../store/thunks/loginThunks';
+import { Link } from 'react-router-dom';
 
 const Login = (props) => {
   const [email, setUsername] = useState('');
@@ -27,6 +28,7 @@ const Login = (props) => {
         props.user.failedLogin &&
         <h1 style={{color:'red'}}>Incorrect username or password</h1>
       }
+      <Link to={`/forgot-password`}>Forgot Password</Link>
       </form>
     </div>
   );

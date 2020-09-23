@@ -1,5 +1,5 @@
 const dotenv=require('dotenv');
-const { startServer } = require('./api/index');
+const { startServer } = require('./api');
 const chalk=require('chalk');
 
 const { seed, sync } = require('./db/index');

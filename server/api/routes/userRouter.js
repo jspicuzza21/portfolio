@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const { models:{ User, Session } }= require('../../db/index');
 const { adminApiSecurityCheck, accessDeniedResponse, memberApiSecurityCheck} = require('../../utils/security');
+const { createPassword } = require('../../utils');
 
 
 const bcrypt = require('bcrypt');
@@ -105,6 +106,17 @@ userRouter.put('/users/:id', async (req, res)=>{
   const user = await User.findOne({where: {id}})
   await user.update({name, department, cellphone, workPhone}, {where:{id}});
   res.sendStatus(200)
+})
+
+userRouter.post('/users/forgot', async (req, res)=>{
+  const { email } = req.body;
+  const user = await User.findOne({where: { email }});
+  if(user){
+    const password = await createPassword(7);
+    const hash = await bcrypt.hash(password, 10);
+    await user.update({password:hash});
+    res.send(password)
+  }
 })
 
 module.exports={

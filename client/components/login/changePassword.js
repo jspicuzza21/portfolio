@@ -10,8 +10,6 @@ const ChangePassword = (props) =>{
   const [access, setAccess] = useState(false);
   const [failedAttempt, setFailedAttempt] = useState(false);
 
-  console.log(props)
-
   if(props.user.role==='member'||props.user.role==='admin'){
   return (
     <div className='page-container' style={{height:'100vh'}}>

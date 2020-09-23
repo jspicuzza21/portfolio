@@ -22,6 +22,7 @@ import Profile from './login/profile';
 import ChangePassword from './login/changePassword';
 import SignUpComplete from './login/signupComplete';
 import EditProfile from './login/editProfile';
+import ForgotPassword from './login/forgotPassword';
 
 export {
   LoginForm,
@@ -47,5 +48,6 @@ export {
   Profile,
   ChangePassword,
   SignUpComplete,
-  EditProfile
+  EditProfile,
+  ForgotPassword
 }

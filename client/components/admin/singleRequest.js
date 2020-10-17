@@ -17,7 +17,7 @@ const SingleRequest = (props) => {
   const handleSubmit=()=>{
     console.log('updating status')
     props.updateStatus(props.match.params.id, status)
-    // props.history.push('/admin/new-requests')
+    props.history.push('/admin/new-requests')
   }
   
   const req = props.admin.singleReq[0]

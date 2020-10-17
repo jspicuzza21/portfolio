@@ -95,10 +95,9 @@ requestRouter.put('/request/status/:id', async (req, res)=>{
   try{
     memberApiSecurityCheck(req);
     const { id } = req.params;
-    const request = await Request.findOne({where: {id}})
-    request.status='Submitted';
-    const { status } = request
-    await Request.update({status}, {where:{id}});
+    const { status } = req.body;
+    const request = await Request.findOne({where: {id}});
+    await request.update({status, assignment })
     const requests = await Request.findAll({where: {userId: req.user.id}});
     res.send(requests);
   }

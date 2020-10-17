@@ -103,11 +103,11 @@ adminRouter.put('/request/status/:id', async (req, res)=>{
   try {
     adminApiSecurityCheck(req);
     const { id } = req.params;
-    const {updatedStatus} = req.body;
+    const {updatedStatus } = req.body;
+    const assignment = req.user.name;
     const request = await Request.findOne({where: {id}})
-    request.status=updatedStatus;
-    const {status} = request
-    await Request.update({status}, {where: {id}})
+    const status=updatedStatus;
+    request.update({status, assignment })
     res.send(request)
   }catch (err) {
     console.log(err)

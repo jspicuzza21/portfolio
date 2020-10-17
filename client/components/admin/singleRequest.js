@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { getSingleRequestThunk, updateRequestStatusThunk } from '../../store/thunks/adminThunks';
-import { Flex } from '@chakra-ui/core';
 
 const SingleRequest = (props) => {
 
@@ -16,9 +15,9 @@ const SingleRequest = (props) => {
   }
   
   const handleSubmit=()=>{
-    console.log(status)
+    console.log('updating status')
     props.updateStatus(props.match.params.id, status)
-    props.history.push('/admin/new-requests')
+    // props.history.push('/admin/new-requests')
   }
   
   const req = props.admin.singleReq[0]
@@ -35,6 +34,7 @@ const SingleRequest = (props) => {
               <th>Service</th>
               <th>Assistant Prosecutor</th>
               <th>Status</th>
+              <th>Assignment</th>
               <th>Urgency</th>
             </tr>
           </thead>
@@ -47,6 +47,7 @@ const SingleRequest = (props) => {
               <td>{req.service}</td>
               <td>{req.aP}</td>
               <td>{req.status}</td>
+              <td>{req.assignment}</td>
               <td>{req.urgency}</td>
             </tr>
           }
@@ -112,7 +113,7 @@ const SingleRequest = (props) => {
 const mapStateToProps = (props) => (props);
 const mapDispatchToProps = (dispatch) => ({
   getSingleRequest: (id) => dispatch(getSingleRequestThunk(id)),
-  updateStatus:(id, history) => dispatch(updateRequestStatusThunk(id, history))
+  updateStatus:(id, status) => dispatch(updateRequestStatusThunk(id, status))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleRequest);

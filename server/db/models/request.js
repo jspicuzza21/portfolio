@@ -11,6 +11,9 @@ const Request = db.define('request',{
     type: STRING,
     defaultValue: 'Incomplete'
   },
+  assignment:{
+    type: STRING,
+  },
   caseNumber:{
     type: STRING,
     allowNull: false,

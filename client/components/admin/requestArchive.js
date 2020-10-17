@@ -13,7 +13,7 @@ const RequestArchive = (props) => {
   if(props.admin.allReqs[0]){
     newRequests=props.admin.allReqs.filter(req => req.status==='Complete')
   }
-
+  
   return(
     <div style={{backgroundColor:'#242424', height:'100vh',padding:'10px'}}>
       <div className='box table-box'>

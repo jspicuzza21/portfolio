@@ -85,6 +85,7 @@ export const getFilteredRequestsThunk = (property, filter)=> {
 export const updateRequestStatusThunk = (id, updatedStatus) => (dispatch) => {
   return axios.put(`/admin/request/status/${id}`, {updatedStatus})
     .then(res => {
+      console.log(res.data)
       dispatch({
         type: types.UPDATE_REQ_STATUS,
         payload: res.data

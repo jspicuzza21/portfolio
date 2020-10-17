@@ -35,7 +35,7 @@ const RequestStats = (props) => {
   }
 
 
-  const inputTypes=['caseNumber', 'aP', 'suspect'];
+  const inputTypes=['caseNumber', 'aP', 'suspect', 'assignment'];
   const dateInputs=['createdAt', 'updatedAt'];
   const months=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
   const years = ['2020', '2021', '2022', '2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030']
@@ -56,6 +56,7 @@ const RequestStats = (props) => {
                 <option value='suspect'>Suspect</option>
                 <option value='status'>Status</option>
                 <option value='urgency'>Urgency</option>
+                <option value='assignment'>Assignment</option>
               </select>
             </div>
           </label>
@@ -142,6 +143,7 @@ const RequestStats = (props) => {
               <th>Suspect</th>
               <th>Status</th>
               <th>Urgency</th>
+              <th>Assignment</th>
               <th>Devices</th>
             </tr>
           </thead>
@@ -160,6 +162,7 @@ const RequestStats = (props) => {
                   <td>{req.suspect}</td>
                   <td>{req.status}</td>
                   <td>{req.urgency}</td>
+                  <td>{req.assignment}</td>
                   <td>{req.devices.length}</td>
                   <td><Link to={`/admin/view-request/${req.id}`}> View</Link></td>
                   <td><button onClick={()=> props.deleteRequest(req.id)} className='button is-danger is-small'>Delete</button></td>

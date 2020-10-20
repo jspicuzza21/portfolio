@@ -1,69 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { whoami } from '../store/thunks/loginThunks';
-import Picture1 from '../assets/images/Picture1.png';
+import React from 'react'
 
-const NavBar = ({ whoAmI, user, history }) => {
-  const [role, setRole] = useState('guest');
-
-  useEffect(() => {
-    whoAmI();
-  }, []);
-
-  useEffect(() => {
-    if (user.role === 'admin') {
-      setRole('admin')
-    } else if (user.role==='member'){
-      setRole('member')
-    } else {
-      setRole('guest')
-    }
-  });
+const Nav = () =>{
 
   return (
     <div>
-      <nav className={user.role==='admin'?'navbar is-dark' :"navbar is-light"} role="navigation" aria-label="main navigation">
-        <div id="navbarHeader" className='navbar-menu' >
-          <div className='navbar-start'>
-            <div className='nav-image'>
-
-            </div>
-            {/* <img src={Picture1} className='nav-image'></img> */}
-            {role==='admin' &&
-              <Link to="/new-request" className="navbar-item">Requests</Link>
-            }
-            {role==='member' &&
-              <Link to="/new-request" className="navbar-item">Requests</Link>
-            }
-            {role==='admin' &&
-              <Link to="/admin" className="navbar-item">Admin</Link>
-            }
-            {
-              role!=='guest' &&
-              <Link to="/profile" className="navbar-item">Profile</Link>
-            }
-          </div>
-          <div id="navbarHeader" className='navbar-end'>
-            {
-              role==='guest' &&
-              <div className="navbar-item">
-                <button onClick={()=> window.location.hash='#/signup'} className='button is-info'>Sign Up</button>
-              </div>
-            }
-            <div className="navbar-item">
-              <button onClick={()=> window.location.hash='#/'} className={user.email? 'button is-danger' : 'button is-primary'}>{user.email? 'Log Out' : 'Login'}</button>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+  <a className="navbar-brand" href="#">Joseph Spicuzza</a>
+  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span className="navbar-toggler-icon"></span>
+  </button>
+  <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div className="navbar-nav">
+      <a className="nav-link" href="#about">About</a>
+      <a className="nav-link" href="#stack">Tech Stack</a>
+      <a className="nav-link" href="#projects">Projects</a>
+      <a className="nav-link" href="#contact">Contact</a>
     </div>
-  );
+  </div>
+</nav>
+    </div>
+  )
 }
 
-const mapStateToProps = ({ user, history }) => ({ user, history });
-const mapDispatchToProps = (dispatch) => ({
-  whoAmI: () => dispatch(whoami()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default Nav;

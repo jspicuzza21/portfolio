@@ -3,17 +3,21 @@ body{
 }
 
 .banner{
-  background-image: url('./images/NYC.jpeg');
+  background-image: url('./images/NYC3.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: white;
 }
 
 .logo{
   width: 80px;
   height: 80px;
-  margin:3px
+  margin:3px;
 }
 
 .logo-container{
@@ -29,7 +33,7 @@ body{
 
 .stack-container{
   border: 1px solid rgb(53,58,63);
-  width: 30%;
+  width: 35%;
   margin: 5px;
 }
 
@@ -69,6 +73,7 @@ body{
   background-color: rgb(53,58,63);
   color: white;
   padding: .5rem;
+  margin-top: 0;
 }
 
 i{
@@ -110,9 +115,116 @@ i{
 
 .pr>div{
   text-align: left;
-  width: 60%;
 }
 
-.pr-dark>.pr-inner{
-  margin-left: auto;
+.pr-description{
+  width:50%;
+}
+
+.pr-description>h3{
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.pr-inner{
+  display: flex;
+  width: 100vw;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.fade-in {
+  animation: fadeIn ease 4s;
+  -webkit-animation: fadeIn ease 4s;
+  -moz-animation: fadeIn ease 4s;
+  -o-animation: fadeIn ease 4s;
+  -ms-animation: fadeIn ease 4s;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.monogram{
+  background-image: url('./images/JS.jpg');
+  height: 150px;
+  background-size: cover;
+  border-radius: 50%;
+  width: 150px;
+  background-repeat: no-repeat;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  z-index: 0;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity .5s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }

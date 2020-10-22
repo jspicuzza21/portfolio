@@ -10,7 +10,12 @@ class Home extends Component{
     return (
     <div>
       <Nav/>
-      <div className='banner'></div>
+      <div className='banner'>
+        <div className="fade-In">
+          <h1>Always Striving to be Better</h1>
+          <div className='monogram'></div>
+        </div>
+      </div>
       <About/>
       <Stack/>
       <Projects/>

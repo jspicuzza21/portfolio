@@ -29,7 +29,7 @@ const Stack = () => {
   return (
     <div id='stack'>
       <div>
-        <h3>Tech Stack</h3>
+        <h1>Tech Stack</h1>
         <div className='stack-page'>
           <div className='stack-container'>
             <h5>Front End</h5>
@@ -42,16 +42,7 @@ const Stack = () => {
               <img className='logo' src={bootstrap} alt="Bootstrap"/>
               <img className='logo' src={nativebase} alt="NativeBase"/>
               <img className='logo' src={bulma} alt="Bulma"/>
-              <img className='logo' src={chakra} alt="Chakra"/>
-            </div>
-          </div>
-          <div className='stack-container'>
-            <h5>Back End</h5>
-            <div className='logo-container'>
-              <img className='logo' src={node} alt="Node.js"/>
-              <img className='logo' src={postgres} alt="Postgres"/>
-              <img className='logo' src={sequeilize} alt="Sequelize"/>
-              <img className='logo' src={express} alt="Express"/>
+              {/* <img className='logo' src={chakra} alt="Chakra"/> */}
             </div>
           </div>
           <div className='stack-container'>
@@ -65,6 +56,15 @@ const Stack = () => {
               <img className='logo' src={github} alt="Github"/>
               <img className='logo' src={heroku} alt="Heroku"/>
               <img className='logo' src={firebase} alt="Firebase"/>
+            </div>
+          </div>
+          <div className='stack-container'>
+            <h5>Back End</h5>
+            <div className='logo-container'>
+              <img className='logo' src={node} alt="Node.js"/>
+              <img className='logo' src={postgres} alt="Postgres"/>
+              <img className='logo' src={sequeilize} alt="Sequelize"/>
+              <img className='logo' src={express} alt="Express"/>
             </div>
           </div>
           <div className='stack-container'>

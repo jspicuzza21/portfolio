@@ -12,7 +12,11 @@ class Home extends Component{
       <Nav/>
       <div className='banner'>
         <div className="fade-In">
-          <h1>Always Striving to be Better</h1>
+          <h2>while (alive) &#123;</h2>
+          <h2>practiceAlgos()</h2>
+          <h2>doWork()</h2>
+          <h2>getBetter()</h2>
+          <h2>&#125;</h2>
           <div className='monogram'></div>
         </div>
       </div>

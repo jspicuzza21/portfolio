@@ -113,6 +113,14 @@ i{
   text-align: left;
 }
 
+.pr-icons{
+  text-align: center;
+}
+
+.pr-icons>a{
+  margin-right: 30px;
+}
+
 .pr-description{
   width:50%;
 }

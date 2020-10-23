@@ -11,7 +11,8 @@ const Projects = () => (
           <p>Tech Used: Node.js | React | React-Redux | Email-js | Webpack | Sequelize | ChakraUI | Stripe</p>
         </div>
         <div>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/6LB9b0yrj4Q" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>        </div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/6LB9b0yrj4Q" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+        </div>
       </div>
     </div>
     <div className='pr pr-dark'>

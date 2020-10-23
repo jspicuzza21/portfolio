@@ -231,12 +231,59 @@ i{
   }
 
   .about{
-    height: vh;
+    height: 100vh;
   }
 }
 
 @media only screen and (max-width: 1000px) {
   .about{
     flex-direction: column;
+  }
+
+  .stack-container{
+    width: 95%;
+  }
+
+  #about{
+    margin-bottom: 25px;
+  }
+
+  #project{
+    margin-bottom: 25px;
+  }
+
+  #stack{
+    margin-bottom: 25px;
+  }
+
+  .about>div{
+    max-width: 75%;
+  }
+
+  div>iframe{
+    visibility: hidden;
+    height: 0;
+    width: 0;
+  }
+
+  .pr-description{
+    width:80%;
+  }
+
+  .pr{
+    padding: 0;
+  }
+
+  .headshot{
+    margin-top: 25px;
+  }
+
+  #contact{
+    max-width: 90%;
+    margin: auto;
+  }
+
+  .contact-container{
+    width: 80%;
   }
 }

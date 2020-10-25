@@ -115,10 +115,9 @@ i{
 
 .pr-icons{
   text-align: center;
-}
-
-.pr-icons>a{
-  margin-right: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .pr-description{
@@ -203,35 +202,6 @@ i{
   }
 }
 
-.tooltip {
-  position: relative;
-  display: inline-block;
-  z-index: 0;
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  
-  
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
-  top: 100%;
-  left: 50%;
-  margin-left: -60px;
-  opacity: 0;
-  transition: opacity .5s;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-}
 
 @media only screen and (min-width: 890px) {
   #stack{
@@ -276,6 +246,7 @@ i{
 
   .pr-description{
     width:80%;
+    margin-top: 15px;
   }
 
   .pr{
@@ -284,6 +255,10 @@ i{
 
   .headshot{
     margin-top: 25px;
+    width: 250px;
+    height: 250px;
+
+
   }
 
   #contact{
@@ -293,5 +268,8 @@ i{
 
   .contact-container{
     width: 80%;
+  }
+  .pr-icons{
+    margin-bottom: 20px;
   }
 }

@@ -34,46 +34,46 @@ const Stack = () => {
           <div className='stack-container'>
             <h5>Front End</h5>
             <div className='logo-container'>
-              <img className='logo' src={html} alt="HTML"/>
-              <img className='logo' src={css} alt="CSS"/>
-              <img className='logo' src={js} alt="JavaScript"/>
-              <img className='logo' src={react} alt="React"/>
-              <img className='logo' src={redux} alt="Redux"/>
-              <img className='logo' src={bootstrap} alt="Bootstrap"/>
-              <img className='logo' src={nativebase} alt="NativeBase"/>
-              <img className='logo' src={bulma} alt="Bulma"/>
+              <img className='logo' src={html} alt="HTML" title="HTML"/>
+              <img className='logo' src={css} alt="CSS" title="CSS"/>
+              <img className='logo' src={js} alt="JavaScript" title="JavaScript"/>
+              <img className='logo' src={react} alt="React" title="React/ReactNative"/>
+              <img className='logo' src={redux} alt="Redux" title="Redux"/>
+              <img className='logo' src={bootstrap} alt="Bootstrap" title="Bootstrap"/>
+              <img className='logo' src={nativebase} alt="NativeBase" title="NativeBase"/>
+              <img className='logo' src={bulma} alt="Bulma" title="Bulma"/>
               {/* <img className='logo' src={chakra} alt="Chakra"/> */}
             </div>
           </div>
           <div className='stack-container'>
             <h5>DevOps</h5>
             <div className='logo-container'>
-              <img className='logo' src={npm} alt="npm"/>
-              <img className='logo' src={homebrew} alt="Homebrew"/>
-              <img className='logo' src={webpack} alt="Webpack"/>
-              <img className='logo' src={babel} alt="babel"/>
-              <img className='logo' src={git} alt="Git"/>
-              <img className='logo' src={github} alt="Github"/>
-              <img className='logo' src={heroku} alt="Heroku"/>
-              <img className='logo' src={firebase} alt="Firebase"/>
+              <img className='logo' src={npm} alt="npm" title="npm"/>
+              <img className='logo' src={homebrew} alt="Homebrew" title="Homebrew"/>
+              <img className='logo' src={webpack} alt="Webpack" title="Webpack"/>
+              <img className='logo' src={babel} alt="babel" title="babel"/>
+              <img className='logo' src={git} alt="Git" title="Git"/>
+              <img className='logo' src={github} alt="Github" title="Github"/>
+              <img className='logo' src={heroku} alt="Heroku" title="Heroku"/>
+              <img className='logo' src={firebase} alt="Firebase" title="Firebase"/>
             </div>
           </div>
           <div className='stack-container'>
             <h5>Back End</h5>
             <div className='logo-container'>
-              <img className='logo' src={node} alt="Node.js"/>
-              <img className='logo' src={postgres} alt="Postgres"/>
-              <img className='logo' src={sequeilize} alt="Sequelize"/>
-              <img className='logo' src={express} alt="Express"/>
+              <img className='logo' src={node} alt="Node.js" title="Node.js"/>
+              <img className='logo' src={postgres} alt="Postgres" title="Postgres"/>
+              <img className='logo' src={sequeilize} alt="Sequelize" title="Sequelize"/>
+              <img className='logo' src={express} alt="Express" title="Express"/>
             </div>
           </div>
           <div className='stack-container'>
             <h5>Tools</h5>
             <div className='logo-container'>
-              <img className='logo' src={vscode} alt="VS Code"/>
-              <img className='logo' src={expo} alt="expo"/>
-              <img className='logo' src={postico} alt="Postico"/>
-              <img className='logo' src={postman} alt="Postman"/>
+              <img className='logo' src={vscode} alt="VS Code" title="VS Code"/>
+              <img className='logo' src={expo} alt="expo" title="Expo"/>
+              <img className='logo' src={postico} alt="Postico" title="Postico"/>
+              <img className='logo' src={postman} alt="Postman" title="Postman"/>
             </div>
           </div>
         </div>

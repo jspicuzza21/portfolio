@@ -8,7 +8,7 @@ import Projects from './projects';
 class Home extends Component{
   render(){
     return (
-    <div>
+    <div className='app'>
       <Nav/>
       <div className='banner'>
         <div className="fade-In">

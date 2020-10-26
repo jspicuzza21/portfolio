@@ -48,6 +48,9 @@ const Projects = () => (
             <a href="https://bugoutbrx.herokuapp.com/"> <FontAwesomeIcon icon={faEye} size="3x" className="icon"/></a>
           </div>
         </div>
+        <div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/TqWkzecBlI4" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+        </div>
       </div>
     </div>
     <div className='pr pr-dark'>
@@ -59,10 +62,10 @@ const Projects = () => (
           <h3>What's App-enning?</h3>
           <p>Mobile application that helps the user find recipes based on a query of ingredients, nutritional value, or recognition from a photo. The app also has the ability to help the user pick up the type of wine to pair with a food.</p>
           <p>Tech Used: React-native | NativeBase | Spoonacular API | Expo</p>
-          <div className='pr-icons'>
+          {/* <div className='pr-icons'>
             <a href=""> <FontAwesomeIcon icon={faGithub} size="3x" className="icon" /></a>
             <a href=""> <FontAwesomeIcon icon={faEye} size="3x" className="icon"/></a>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

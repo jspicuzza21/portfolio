@@ -25,7 +25,7 @@ const Projects = () => (
     <div className='pr pr-dark'>
       <div className='pr-inner'>
         <div>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/670IlbyAxMM" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/DOuH3tntusc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div className='pr-description'>
           <h3>SCPO Cyber Portal</h3>

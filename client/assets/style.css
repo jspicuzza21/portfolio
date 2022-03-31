@@ -1,0 +1,282 @@
+body{
+  text-align: center;
+}
+
+.banner{
+  background-image: url('./images/NYC3.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: white;
+}
+
+.logo{
+  width: 80px;
+  height: 80px;
+  margin:3px;
+}
+
+.logo-container{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+
+.stack-container{
+  border: 1px solid rgb(53,58,63);
+  width: 35%;
+  margin: 5px;
+}
+
+.stack-page{
+  display: flex;
+  align-items: center;
+  width: 70%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: auto;
+}
+
+.about{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.about>div{
+  max-width: 50%;
+  font-size: larger;
+}
+
+.headshot{
+  background-image: url('./images/joe.jpeg');;
+  width: 400px;
+  height: 400px;
+  background-size: cover;
+  border-radius: 50%;
+  border-color: rgb(53,58,63);
+  border: 10px solid;
+}
+
+.stack-container>h5{
+  background-color: rgb(53,58,63);
+  color: white;
+  padding: .5rem;
+  margin-top: 0;
+}
+
+i{
+  height: 1rem;
+}
+
+.contact{
+  display: flex;
+  justify-content: space-between;
+}
+.contact-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20%;
+  margin: auto;
+}
+
+.icon:hover { 
+  color:lightgray !important;
+}
+
+.contact>a{
+  color: rgb(53,58,63);
+}
+
+#projects{
+  margin-bottom: 50px;
+}
+
+.pr-dark{
+  background-color: rgb(53,58,63);
+  color: white;
+}
+
+.pr{
+  padding: 50px 0px 50px 0px;
+}
+
+.pr>div{
+  text-align: left;
+}
+
+.pr-icons{
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.pr-description{
+  width:50%;
+}
+
+.pr-description>h3{
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.pr-inner{
+  display: flex;
+  width: 100vw;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.fade-in {
+  animation: fadeIn ease 4s;
+  -webkit-animation: fadeIn ease 4s;
+  -moz-animation: fadeIn ease 4s;
+  -o-animation: fadeIn ease 4s;
+  -ms-animation: fadeIn ease 4s;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.monogram{
+  background-image: url('./images/JS.jpg');
+  height: 150px;
+  background-size: cover;
+  border-radius: 50%;
+  width: 150px;
+  background-repeat: no-repeat;
+}
+
+#contact{
+  margin-bottom: 20px;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+
+@media only screen and (min-width: 890px) {
+  #stack{
+    height: 100vh;
+  }
+
+  .about{
+    height: 100vh;
+  }
+}
+
+
+/* @media only screen and (min-width: 1000px) {
+  max 
+} */
+
+@media only screen and (max-width: 1000px) {
+  .about{
+    flex-direction: column;
+  }
+
+  .stack-container{
+    width: 95%;
+  }
+
+  #about{
+    margin-bottom: 25px;
+  }
+
+  #project{
+    margin-bottom: 25px;
+  }
+
+  #stack{
+    margin-bottom: 25px;
+  }
+
+  .about>div{
+    max-width: 75%;
+  }
+
+  div>iframe{
+    visibility: hidden;
+    height: 0;
+    width: 0;
+  }
+
+  .pr-description{
+    width:80%;
+    margin-top: 15px;
+  }
+
+  .pr{
+    padding: 0;
+  }
+
+  .headshot{
+    margin-top: 25px;
+    width: 250px;
+    height: 250px;
+  }
+
+  #contact{
+    max-width: 90%;
+    margin: auto;
+  }
+
+  .contact-container{
+    width: 80%;
+  }
+  .pr-icons{
+    margin-bottom: 20px;
+  }
+}

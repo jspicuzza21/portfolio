@@ -6,11 +6,8 @@ import { faGithub, faYoutube } from '@fortawesome/free-brands-svg-icons'
 const Projects = () => (
   <div id="projects">
     <h1>Projects</h1>
-      <div className='pr pr-dark'>
+    <div className='pr'>
       <div className='pr-inner'>
-        <div>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/YS6rlmG6YjY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>       
-        </div>
         <div className='pr-description'>
           <h3>DriveWayze <em>(Still in development)</em></h3>
           <p>P2P online marketplace that allows users to rent and sell parking spaces from each other. Built solo. </p>
@@ -19,21 +16,8 @@ const Projects = () => (
             <a href="https://drivewayze.herokuapp.com/#/"> <FontAwesomeIcon icon={faEye} size="3x" className="icon"/></a>
           </div>
         </div>
-      </div>
-    </div>
-    <div className='pr'>
-      <div className='pr-inner'>
-        <div className='pr-description'>
-          <h3>Smooth Jazz</h3>
-          <p>A custom built e-commerce site that sells the smoothest of jazz instruments.</p>
-          <p>Tech Used: Node.js | React | React-Redux | Email-js | Webpack | Sequelize | ChakraUI | Stripe | Heroku</p>
-          <div className='pr-icons'>
-            <a href="https://github.com/Rebel-Alliance-2004/grace-shopper"> <FontAwesomeIcon icon={faGithub} size="3x" className="icon" /></a>
-            <a href="http://graces-hopper.herokuapp.com/"> <FontAwesomeIcon icon={faEye} size="3x" className="icon"/></a>
-          </div>
-        </div>
         <div>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/6LB9b0yrj4Q" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/YS6rlmG6YjY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>       
         </div>
       </div>
     </div>
@@ -81,6 +65,22 @@ const Projects = () => (
             <a href=""> <FontAwesomeIcon icon={faGithub} size="3x" className="icon" /></a>
             <a href=""> <FontAwesomeIcon icon={faEye} size="3x" className="icon"/></a>
           </div> */}
+        </div>
+      </div>
+    </div>
+    <div className='pr'>
+      <div className='pr-inner'>
+        <div className='pr-description'>
+          <h3>Smooth Jazz</h3>
+          <p>A custom built e-commerce site that sells the smoothest of jazz instruments.</p>
+          <p>Tech Used: Node.js | React | React-Redux | Email-js | Webpack | Sequelize | ChakraUI | Stripe | Heroku</p>
+          <div className='pr-icons'>
+            <a href="https://github.com/Rebel-Alliance-2004/grace-shopper"> <FontAwesomeIcon icon={faGithub} size="3x" className="icon" /></a>
+            <a href="http://graces-hopper.herokuapp.com/"> <FontAwesomeIcon icon={faEye} size="3x" className="icon"/></a>
+          </div>
+        </div>
+        <div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/6LB9b0yrj4Q" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </div>
       </div>
     </div>

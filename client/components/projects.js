@@ -14,6 +14,7 @@ const Projects = () => (
           <p>Tech Used: React | Redux | Postgres | Sequelize | Node.js | Stripe Connect | Google Maps API | socket.io | AWS S3 | Bootstrap | Webpack | Babel | Heroku | moment.js</p>
           <div className='pr-icons'>
             <a href="https://drivewayze.herokuapp.com/#/"> <FontAwesomeIcon icon={faEye} size="3x" className="icon"/></a>
+            <a href="https://www.youtube.com/watch?v=YS6rlmG6YjY" className="youtube-icon"> <FontAwesomeIcon icon={faYoutube} size="3x" className="icon"/></a>
           </div>
         </div>
         <div>
@@ -27,11 +28,12 @@ const Projects = () => (
           <iframe width="560" height="315" src="https://www.youtube.com/embed/DOuH3tntusc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div className='pr-description'>
-          <h3>SCPO Cyber Portal</h3>
-          <p>Full stack web portal built to help manage and track requests made to the Cyber Crimes Unit at the Somerset County Prosecutor's Office for forensic exams. Built solo.</p>
+          <h3>SCPO Request Portal</h3>
+          <p>Full stack web portal built to help manage and track requests made to the Cyber Crimes Unit at the Somerset County Prosecutor's Office for forensic exams. Tested and lauched with real users. Built solo.</p>
           <p>Tech Used: React | Redux | Postgres | Sequelize | Node.js | Email.js | Firebase | Bulma | ChakraUI | Webpack | Babel | Heroku</p>
           <div className='pr-icons'>
             <a href="https://scpo.herokuapp.com/"> <FontAwesomeIcon icon={faEye} size="3x" className="icon"/></a>
+            <a href="https://www.youtube.com/watch?v=DOuH3tntusc" className="youtube-icon"> <FontAwesomeIcon icon={faYoutube} size="3x" className="icon"/></a>
           </div>
         </div>
       </div>
@@ -45,6 +47,7 @@ const Projects = () => (
           <div className='pr-icons'>
             <a href="https://github.com/Ice-Code-Creamery/Bug-Out"> <FontAwesomeIcon icon={faGithub} size="3x" className="icon" /></a>
             <a href="https://bugoutbrx.herokuapp.com/"> <FontAwesomeIcon icon={faEye} size="3x" className="icon"/></a>
+            <a href="https://www.youtube.com/watch?v=TqWkzecBlI4" className="youtube-icon"> <FontAwesomeIcon icon={faYoutube} size="3x" className="icon" /></a>
           </div>
         </div>
         <div>
@@ -61,10 +64,11 @@ const Projects = () => (
           <h3>What's App-enning?</h3>
           <p>Mobile application that helps the user find recipes based on a query of ingredients, nutritional value, or recognition from a photo. The app also has the ability to help the user pick up the type of wine to pair with a food.</p>
           <p>Tech Used: React-native | NativeBase | Spoonacular API | Expo</p>
-          {/* <div className='pr-icons'>
-            <a href=""> <FontAwesomeIcon icon={faGithub} size="3x" className="icon" /></a>
-            <a href=""> <FontAwesomeIcon icon={faEye} size="3x" className="icon"/></a>
-          </div> */}
+          <div className='pr-icons'>
+            {/* <a href=""> <FontAwesomeIcon icon={faGithub} size="3x" className="icon" /></a>
+            <a href=""> <FontAwesomeIcon icon={faEye} size="3x" className="icon"/></a> */}
+            <a href="https://www.youtube.com/watch?v=fUfDbITOQe8" className="youtube-icon"> <FontAwesomeIcon icon={faYoutube} size="3x" className="icon"/></a>
+          </div>
         </div>
       </div>
     </div>
@@ -77,6 +81,7 @@ const Projects = () => (
           <div className='pr-icons'>
             <a href="https://github.com/Rebel-Alliance-2004/grace-shopper"> <FontAwesomeIcon icon={faGithub} size="3x" className="icon" /></a>
             <a href="http://graces-hopper.herokuapp.com/"> <FontAwesomeIcon icon={faEye} size="3x" className="icon"/></a>
+            <a href="https://www.youtube.com/watch?v=6LB9b0yrj4Q" className="youtube-icon"> <FontAwesomeIcon icon={faYoutube} size="3x" className="icon"/></a>
           </div>
         </div>
         <div>

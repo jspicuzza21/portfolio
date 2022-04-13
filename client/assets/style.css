@@ -100,6 +100,10 @@ i{
   margin-bottom: 50px;
 }
 
+.youtube-icon{
+  display: none;
+}
+
 .pr-dark{
   background-color: rgb(53,58,63);
   color: white;
@@ -244,7 +248,7 @@ i{
   }
 
   .about>div{
-    max-width: 75%;
+    max-width: 85%;
   }
 
   div>iframe{
@@ -256,6 +260,16 @@ i{
   .pr-description{
     width:80%;
     margin-top: 15px;
+    margin: auto;
+  }
+
+  .pr-description>h3{
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .youtube-icon{
+    display: block;
   }
 
   .pr{

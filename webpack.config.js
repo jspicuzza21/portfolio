@@ -1,24 +1,28 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-  entry: path.join(__dirname, './client/index.js'),
+  entry: path.join(__dirname, "./client/index.js"),
   output: {
-    path: path.join(__dirname, './dist'),
-    filename: 'main.js',
+    path: path.join(__dirname, "./dist"),
+    filename: "main.js",
   },
-  devtool: 'source-map',
+  devtool: "source-map",
   module: {
     rules: [
       {
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        loader: "babel-loader",
       },
       {
         test: /\.(jpg|jpeg|png)$/,
         use: {
-         loader: 'url-loader'
-        }
-       }
+          loader: "url-loader",
+        },
+      },
     ],
+  },
+  resolve: {
+    extensions: [".js", ".jsx"],
   },
 };

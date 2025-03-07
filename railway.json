@@ -1,6 +1,6 @@
 {
   "build": {
-    "command": "npm install && npm run build"
+    "command": "npm install && echo 'Starting build...' && npm run build && echo 'Build completed' && ls -la dist || echo 'Dist directory not found'"
   },
   "start": {
     "command": "npm start"

@@ -12,6 +12,7 @@ import express from "../assets/images/backend/express.png";
 import node from "../assets/images/backend/node.png";
 import postgres from "../assets/images/backend/postgres.png";
 import sequeilize from "../assets/images/backend/sequelize.png";
+import php from "../assets/images/backend/php.png";
 import babel from "../assets/images/devops/babel.jpg";
 import firebase from "../assets/images/devops/firebase.png";
 import git from "../assets/images/devops/git.png";
@@ -131,6 +132,7 @@ const Stack = () => {
                 title="Express"
               />
               <img className="logo" src={java} alt="Java" title="Java" />
+              <img className="logo" src={php} alt="PHP" title="PHP" />
             </div>
           </div>
           <div className="stack-container">

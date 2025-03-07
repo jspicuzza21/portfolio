@@ -8,7 +8,7 @@ const Contact = () => (
     <h3>Want to connect? Click the links below to reach out!</h3>
     <div className="contact-container">
       <div className="contact">
-        <a href="https://drive.google.com/file/d/1B7qyNB0KBx7Whyeaj0HSw5m5pyQE34TJ/view?usp=sharing">
+        <a href="https://drive.google.com/file/d/1BtDjskDTfoXVCYxtd0Q3uCKDieL5AZLb/view?usp=sharing">
           <FontAwesomeIcon icon={faFileAlt} size="3x" className="icon" />
         </a>
         <a href="mailto:j.spicuzzajr@gmail.com">

@@ -14,7 +14,7 @@ const Projects = () => (
           </h3>
           <p>
             P2P online marketplace that allows users to rent and sell parking
-            spaces. Built solo.{" "}
+            spaces. Built solo.
           </p>
           <p>
             Tech Used: React | Redux | Postgres | Sequelize | Node.js | Stripe
@@ -141,7 +141,7 @@ const Projects = () => (
             Mobile application that helps the user find recipes based on a query
             of ingredients, nutritional value, or recognition from a photo. The
             app also has the ability to help the user pick up the type of wine
-            to pair with a food.
+            to pair with a food. Built solo in a week as part of a hackathon.
           </p>
           <p>Tech Used: React-native | NativeBase | Spoonacular API | Expo</p>
           <div className="pr-icons">
@@ -164,7 +164,7 @@ const Projects = () => (
           <h3>Smooth Jazz</h3>
           <p>
             A custom built e-commerce site that sells the smoothest of jazz
-            instruments.
+            instruments. Built as a team at Fullstack Academy.
           </p>
           <p>
             Tech Used: Node.js | React | React-Redux | Email-js | Webpack |

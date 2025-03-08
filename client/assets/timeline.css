@@ -1,0 +1,64 @@
+.timeline-container {
+  width: 80%;
+  padding: 20px 0;
+  margin: 100px auto;
+}
+
+.timeline-line {
+  height: 4px;
+  background-color: #e0e0e0;
+}
+
+.entries-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  display: flex;
+}
+
+.vertical-line {
+  width: 2px;
+  background-color: #343a40;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.top-line {
+  top: 0;
+  height: 20px; /* adjust as needed */
+}
+
+.bottom-line {
+  bottom: 0;
+  height: 20px; /* adjust as needed */
+}
+
+.timeline-entry {
+  position: absolute;
+  width: 230px;
+  transform: translateX(-50%);
+}
+
+.timeline-entry-content {
+  margin: 20px 0;
+  line-height: 2;
+}
+
+.timeline-entry-content p {
+  margin: 0;
+}
+
+.odd-entry {
+  /* bottom: 130px; */
+  top: -128px;
+}
+
+.company,
+.period {
+  margin: 0;
+}
+
+.company {
+  font-size: 12px;
+}

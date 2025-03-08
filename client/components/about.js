@@ -7,7 +7,7 @@ const About = () => (
       <h1>About</h1>
       <p>
         Hello, I'm Joe, a seasoned full stack developer and software engineer
-        based in Fort Lauderdale, Florida. With over eight years of tech
+        based in the Greater New York City Area. With over eight years of tech
         industry experience, I embarked on my journey in technology as a
         computer forensic and cyber security analyst, serving both law
         enforcement agencies and private enterprises. Certified as a forensic
@@ -15,14 +15,14 @@ const About = () => (
         delved deep into the intricacies of digital security.
       </p>
       <p>
-        However, seeking to expand my horizons, I pursued a transformative path
-        by enrolling in the rigorous seven-month Software Engineering Immersive
+        Seeking to expand my horizons, I pursued a transformative path by
+        enrolling in the rigorous seven-month Software Engineering Immersive
         bootcamp offered by Fullstack Academy. Emerging from the program, I
         acquired a comprehensive skill set enabling me to proficiently craft
         mobile and web applications as a full stack developer.
       </p>
       <p>
-        Presently, as a Software Engineer II at EverTrue, I am dedicated to
+        Currently, as a Software Engineer II at EverTrue, I am dedicated to
         continuous growth, refining my engineering prowess, and embracing
         challenges that foster my development as a professional.
       </p>
